@@ -1,5 +1,5 @@
 # frontend
-clone 후
+clone 후 htp-test 폴더에 들어가서
 ```
 npm install package.json
 ```
