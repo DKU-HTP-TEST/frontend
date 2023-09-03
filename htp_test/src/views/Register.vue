@@ -7,15 +7,18 @@
       <hr/>
       <div class="circle" id="c3"></div>
     </div>
+    <Button msg="다음" @click="Buttonclick"/>
 </template>
   
   <script>
   import UpperSide from '../components/UpperSide.vue';
+  import Button from "../components/Button.vue";
   
   export default {
     name: 'Register',
     components: {
-      UpperSide
+      UpperSide,
+      Button
     }
   }
   </script>
