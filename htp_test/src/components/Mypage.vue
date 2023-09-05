@@ -34,8 +34,9 @@ export default {
         display: block;
         width: 32%;
         height: 100vh;
-        background-color: #F6B590;
-        opacity: 0.44;
+        /* background-color: #F6B590;
+        opacity: 0.44; */
+        background-color: rgba(246, 181, 144, 0.44);
     }
     .title {
         font-size: 230%;

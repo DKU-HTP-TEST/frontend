@@ -27,6 +27,7 @@
     .main > h2 {
         display: table-cell;
         vertical-align: middle;
+        font-size: 35px;
     }
 </style>
   
