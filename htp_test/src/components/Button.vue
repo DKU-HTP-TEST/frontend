@@ -30,6 +30,12 @@
         font-weight: bold;
         text-align: center;
         font-size: 15px;
+
+        /* position: absolute;
+        top: 90%;
+        left: 50%;
+        transform: translate(-50%, -50%);  페이지 중앙에 위치 */
     }
+
 </style>
   
