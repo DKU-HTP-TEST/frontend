@@ -17,8 +17,8 @@
   export default {
     name: 'Register',
     components: {
-      UpperSide,
-      Button
+        UpperSide,
+        Button
     }
   }
   </script>

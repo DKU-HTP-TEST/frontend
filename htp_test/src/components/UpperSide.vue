@@ -1,22 +1,21 @@
 <template>
     <div class="main">
-      <h2>{{ msg }}</h2>
+        <h2>{{ msg }}</h2>
     </div>
-  </template>
+</template>
   
-  <script>
-  export default {
-    name: 'UpperSide',
-    props: {
-      msg: String
+<script>
+    export default {
+        name: 'UpperSide',
+        props: {
+            msg: String
+        }
     }
-  }
   
-  </script>
+</script>
   
-  <!-- Add "scoped" attribute to limit CSS to this component only -->
-  <style scoped>
-   
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped> 
     .main {
         display: table;
         height: 250px;
@@ -29,5 +28,5 @@
         display: table-cell;
         vertical-align: middle;
     }
-  </style>
+</style>
   

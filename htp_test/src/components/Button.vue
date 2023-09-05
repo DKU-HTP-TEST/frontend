@@ -1,18 +1,17 @@
 <template>
     <div class="btn btn-primary">
-      <button type="button" class="btn btn-primary" @click="Buttonclick">{{ msg }}</button>
+        <button type="button" class="btn btn-primary" @click="Buttonclick">{{ msg }}</button>
     </div>
-  </template>
+</template>
   
-  <script>
-  export default {
-    name: 'Button',
-    props: {
-      msg: String
+<script>
+    export default {
+        name: 'Button',
+        props: {
+            msg: String
+        }
     }
-  }
-
-  </script>
+</script>
   
   <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
