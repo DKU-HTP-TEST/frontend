@@ -18,7 +18,7 @@
         </div>
       
     </div>
-    <Button msg = '검사 결과 보러가기' @click="Buttonclick"/>
+    <Button msg = '검사 결과 보러가기'  @click="Buttonclick"></Button>
 </template>
 
 <script>

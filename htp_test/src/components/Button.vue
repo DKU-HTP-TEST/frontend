@@ -1,5 +1,5 @@
 <template>
-    <div class="btn btn-primary">
+    <div class=" btn btn-primary">
         <button type="button" class="btn btn-primary" @click="Buttonclick">{{ msg }}</button>
     </div>
 </template>
@@ -16,24 +16,26 @@
   <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
     .btn {
-        margin-top: 10px;
+        margin-top: -17px;
         /* position: absolute; */
-        width: 349px;
-        height: 39px;
+        width: 350px;
+        height: 50px;
         /* left: 31px;
         top: 416px; */
         background-color: #F6B590;
         border-radius: 8px;
-        border-color: #F6B590;
+        /* border: none; */
+
+        
         color: black;
         font-weight: bold;
         text-align: center;
         font-size: 15px;
 
-        /* position: absolute;
-        top: 90%;
+        position: absolute;
+        top: 85%;
         left: 50%;
-        transform: translate(-50%, -50%);  페이지 중앙에 위치 */
+        transform: translate(-50%, -50%);  /* 페이지 중앙에 위치 */
     }
 
 </style>
