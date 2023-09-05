@@ -1,5 +1,5 @@
 <template>
-    <div class=" btn btn-primary">
+    <div class="btn btn-primary">
         <button type="button" class="btn btn-primary" @click="Buttonclick">{{ msg }}</button>
     </div>
 </template>
