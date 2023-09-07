@@ -8,6 +8,7 @@ import Mypage from '../views/Mypage'
 import Complete from '../views/Complete.vue'
 import TestStartPage from '../views/TestStartPage'
 import TestPage from '../views/TestPage'
+import MainBeforeLoginView from '../views/MainBeforeLoginView.vue'
 import MainAfterLoginView from '../views/MainAfterLoginView.vue'
 
 const routes = [
@@ -33,6 +34,12 @@ const routes = [
         path: '/login',
         name: 'login',
         component: LoginView
+    },
+    
+    {
+        path: '/MainBeforeLogin',
+        name: 'MainBeforeLogin',
+        component: MainBeforeLoginView
     },
 
     {
