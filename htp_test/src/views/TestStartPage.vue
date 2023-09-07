@@ -1,25 +1,31 @@
 <template>
-    <Button msg="다음" @click="Buttonclick"/>
+    <Button msg="다음" @click="start"></Button>
 </template>
-  
+
   <script>
   import UpperSide from '../components/UpperSide.vue';
   import Button from "../components/Button.vue";
-  import { useRouter } from "vue-router";
-  
+
   export default {
     name: 'Register',
     components: {
         UpperSide,
         Button
+    },
+    methods: {
+        start : function () {
+            this.$router.push({
+                name: "TestPage",
+                query: {order: 1}
+            })
+        }
     }
-  }
+  };
 
-  const router = useRouter();
   
-  const start = () => {
-    router.push({path : "/"})
-  }
+
+  
+  
 
   </script>
   

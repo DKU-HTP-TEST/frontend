@@ -30,6 +30,12 @@ const routes = [
         name: "TestStartPage",
         component: TestStartPage
     },
+
+    {
+        path: '/test',
+        name: "TestPage",
+        component: TestPage
+    },
 ];
 
 
