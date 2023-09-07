@@ -71,12 +71,14 @@
     .loginpage {
         /* text-align: center;
         height: calc(100vh - 132px); */
+        text-align: center;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
     .loginIDPW{
-        display: flex;
+        /* display: flex; */
+        text-align: left;
         flex-direction: column;
         align-items: flex-start;
         margin-bottom: 8px;
