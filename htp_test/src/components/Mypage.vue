@@ -19,13 +19,10 @@
 
 <script>
 export default {
-    name: 'Mypage',
+    name: 'MypageComponent',
     props: {
-        user: {
-            type: String,
-            default: "user"
-        }
-    },
+        user: String
+    }
 }
 </script>
 

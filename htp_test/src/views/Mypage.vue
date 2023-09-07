@@ -1,18 +1,18 @@
 <template>
-    <Mypage :user="username"/>
+    <MypageComponent :user="username"/>
   </template>
   
   <script>
-  import Mypage from "../components/Mypage.vue";
+  import MypageComponent from "../components/Mypage.vue";
   
   export default {
     name: 'Mypage',
     components: {
-        Mypage
+        MypageComponent
     },
     data() {
         return {
-            username: 'ㅇㅇㅇ',
+            username: "jang",
         }
     }
   }
