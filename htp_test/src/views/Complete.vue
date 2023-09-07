@@ -47,12 +47,12 @@
             text-align: center; /*텍스트를 가운데 정렬하기 위한 속성 */
             background-color: rgba(217, 217, 217, 0.5);
 
-            /* position: absolute;
+            position: absolute;
             top: 60%;
             left: 50%;
-            transform: translate(-50%, -50%); */
-            margin-left: 660px;
-            margin-right: 660px;       
+            transform: translate(-50%, -50%);
+            /* margin-left: 660px;
+            margin-right: 660px;        */
     }
 
     .grey_box img{
