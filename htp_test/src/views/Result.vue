@@ -11,9 +11,9 @@
             <TestResult msg = 'HUMAN 검사 결과' msg2 = 'asdfasdfasdf'/>
         </div>
     </div>
-    <div class = "btn">
+    <!-- <div class = "btn">
         <Button msg="처음으로" @click="Buttonclick"></Button>
-    </div>
+    </div> -->
 
 </template>
 <script>
