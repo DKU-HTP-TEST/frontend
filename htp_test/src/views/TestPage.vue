@@ -1,15 +1,16 @@
 <template>
-    <div style="position:relative">
-    <UpperSide :msg="order"> <!--상단 바--> </UpperSide>
+    <div class="main">
+        <h2>{{ this.order }}</h2>
+        <img v-bind:src="image[order-1].img" style="width:30px; height:30px;">
     </div>
-    <img v-bind:src="image[order-1].img" style="position: absolute; width:30px; height:30px;">
+    
     
     <div class="circle-box"> <!--절차 원-->
-      <div class="circle" style="margin-left: 70px;">1</div>
+      <div class="circle" style="margin-left: 70px;">집</div>
       <hr/>
-      <div class="circle" id="c2">2</div>
+      <div class="circle" id="c2">나무</div>
       <hr/>
-      <div class="circle" id="c3">3</div>
+      <div class="circle" id="c3">사람</div> 
     </div>
 
     <h3>{{image[order-1].name}} 그려주세요</h3>
@@ -28,7 +29,8 @@
   import UpperSide from '../components/UpperSide.vue';
   import Button from "../components/Button.vue";
   import { useRoute } from 'vue-router';
-import { router } from '@/router';
+
+
   const route = useRoute;
   
   export default {
@@ -75,7 +77,25 @@ import { router } from '@/router';
   }
   </script>
   
-  <style>
+  <style scoped>
+
+    .main {
+        display: table;
+        height: 250px;
+        width: 100%;
+        background-color: #F6B590;
+        margin: 0px;
+        padding: 0px;
+    }
+    .main > h2 {
+        display: table-cell;
+        vertical-align: middle;
+        font-size: 35px;
+    }
+    .main > img {
+      display: table-cell;
+      vertical-align: middle;
+    }
 
    body {
       margin: 0px;
@@ -96,7 +116,7 @@ import { router } from '@/router';
       margin-top: 25%;
       width: 35px;
       height: 35px;
-      margin-left: 30px;
+      margin-left: 13px;
     }
     hr {
       margin-left: 20px;
