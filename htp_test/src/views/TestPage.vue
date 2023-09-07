@@ -58,16 +58,16 @@ import { router } from '@/router';
     },
     methods: {
       next: function () {
-        var tmp = Number(this.order) + 1;
-        if (tmp == 4) {
+        if (this.order == 3) {
           this.$router.push({
             name: "Complete"
           })
         }
         else {
+          this.order = Number(this.order) + 1;
           this.$router.push({
                 name: "TestPage",
-                query: {order: tmp}
+                query: {order: this.order}
           });
         }
       }
