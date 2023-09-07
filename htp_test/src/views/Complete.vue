@@ -14,7 +14,6 @@
                 <h3>검사를 완료하였습니다.</h3>
                 <h3>아래의 결과보기 버튼을 누르시면 바로 결과 확인이 가능합니다.</h3>
             </div>
-
         </div>
       
     </div>
@@ -38,8 +37,8 @@
     body {
     margin: 0px;
     padding: 0px;
-    
     }
+
     .grey_box {
             width: 550px;
             height: 320px;
@@ -48,11 +47,14 @@
             text-align: center; /*텍스트를 가운데 정렬하기 위한 속성 */
             background-color: rgba(217, 217, 217, 0.5);
 
-            position: absolute;
+            /* position: absolute;
             top: 60%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); */
+            margin-left: 660px;
+            margin-right: 660px;       
     }
+
     .grey_box img{
 
         width: 170px;

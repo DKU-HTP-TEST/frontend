@@ -19,7 +19,7 @@
     .main {
         display: table;
         height: 250px;
-        width: 100%;
+        /* width: 1870px; */
         background-color: #F6B590;
         margin: 0px;
         padding: 0px;
