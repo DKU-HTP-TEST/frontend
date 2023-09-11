@@ -16,7 +16,7 @@
   <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
     .btn {
-        margin-top: -17px;
+        margin-top: -18px;
         /* position: absolute; */
         width: 350px;
         height: 50px;

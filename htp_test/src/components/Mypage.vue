@@ -29,6 +29,7 @@ export default {
 <style scoped>
     .main {
         display: block;
+        position: absolute;
         width: 32%;
         height: 100vh;
         /* background-color: #F6B590;

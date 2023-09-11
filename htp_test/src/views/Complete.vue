@@ -34,10 +34,10 @@
   </script>
 
 <style>
-    body {
+    /* body {
     margin: 0px;
     padding: 0px;
-    }
+    } */
 
     .grey_box {
             width: 550px;
@@ -47,10 +47,16 @@
             text-align: center; /*텍스트를 가운데 정렬하기 위한 속성 */
             background-color: rgba(217, 217, 217, 0.5);
 
+            display: inline-block;
+            vertical-align: middle;
+            /*
             position: absolute;
+            display: block;
+            justify-content: center; /* 가로 가운데 정렬 
             top: 60%;
             left: 50%;
             transform: translate(-50%, -50%);
+            */
             /* margin-left: 660px;
             margin-right: 660px;        */
     }
@@ -81,6 +87,9 @@
         font-weight: normal;
         line-height: 1px;
     }
+    .complete_msg{
+        display: block;
+    }
 
     #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -89,4 +98,6 @@
     text-align: center;
     color: #2c3e50;
     }
+
+
 </style>

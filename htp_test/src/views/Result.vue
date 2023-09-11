@@ -39,7 +39,7 @@ export default {
     }
 
     .column {
-      flex: 1; /* 동일한 너비 분할 */
+      flex: 1; 
       padding: 20px; /* 열 사이 간격 조절 */
       border: 1px solid #ccc; 
     }
