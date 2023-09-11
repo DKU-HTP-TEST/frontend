@@ -1,0 +1,169 @@
+<template>
+    <div style="display: flex;">
+        <h3>회원 정보 수정</h3>
+        <div class="modify_btn" @click="modify_func">
+            <img src="../assets/modify-icon.png">
+        </div>
+    </div>
+    
+    <br>
+    <hr>
+    <br><br><br><br><br><br><br>
+
+    <div class="content">
+    <p id="attr">아이디</p>
+    <div class="box">
+        <p>{{ id }}</p>
+    </div>
+
+    <p id="attr">비밀번호</p>
+    <div class="box" v-if="!this.isModify">
+        <p>{{ password }}</p>
+    </div>
+    <div class="input-box" v-if="this.isModify">
+        <input typ="text" name="password">
+    </div>
+
+    <p id="attr">이름</p>
+    <div class="box">
+        <p>{{ name }}</p>
+    </div>
+
+    <p id="attr">e-mail</p>
+    <div class="box" v-if="!this.isModify">
+        <p>{{ email }}</p>
+    </div>
+    <div class="input-box" v-if="this.isModify">
+        <input type="text" name="email">
+    </div>
+
+    <div v-if="this.isModify" class="btn_area">
+        <button @click="save" id="save">저장</button>
+        <button @click="cancel" id="cancel">취소</button>
+    </div>
+    </div>
+
+    
+</template>
+  
+<script>
+    import Button from './Button.vue'
+
+    export default {
+        name: 'UpperSide',
+        components: {
+            Button,
+        },
+        data() {
+            return {
+                isModify : false,
+                id: "hyunji123",
+                password: "****",
+                name: "Jang",
+                email: "jang@gmail.com",
+            }
+        },
+        methods: {
+            modify_func: function () {
+                this.isModify = true;
+
+            },
+            save: function () {
+                this.isModify = false;
+            },
+            cancel: function () {
+                this.isModify = false;
+            }
+        }
+    }
+  
+</script>
+  
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped> 
+    h3 {
+        padding-top: 50px;
+        padding-left: 80px;
+        font-weight: 70;
+        font-size: 25px;
+        text-align: left;
+        color: black;
+        margin: 0;
+        display: flex;
+        align-items: center; /*수직 가운데 정렬*/
+        justify-content: left; /*수평 왼쪽 정렬*/
+    }
+
+    hr {
+        margin-left: 70px;
+        margin-right: 70px;
+    }
+
+    #attr {
+        padding-left: 80px;
+        text-align: left;
+        color: black;
+        margin: 0;
+        display: flex;
+        align-items: center; /*수직 가운데 정렬*/
+        justify-content: left; /*수평 왼쪽 정렬*/
+    }
+
+    .modify_btn { 
+        margin-top: 65px;
+        margin-left: 30px;
+        float: right;
+    }
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .btn_area {
+        margin-top: 250px;
+        margin-right: 70px;
+        float: right;
+    }
+
+    button {
+        background-color: rgba(246, 181, 144, 0.44);
+        width: 100px;
+        height: 40px;
+        margin-right: 20px;
+        border-radius: 7px;
+    }
+
+    .box {
+        background-color: gainsboro;
+        width: 600px;
+        height: 35px;
+        margin-top: 10px;
+        margin-left: 80px;
+        margin-bottom: 20px;
+        border-radius: 7px;
+    }
+
+    .box > p {
+        padding-left: 10px;
+        padding-top: 7px;
+        text-align: left;
+        color: black;
+        margin: 0;
+        display: flex;
+        align-items: center; /*수직 가운데 정렬*/
+        justify-content: left; /*수평 왼쪽 정렬*/
+    }
+
+    input {
+        width: 600px;
+        height: 30px;
+        margin-top: 10px;
+        margin-left: 80px;
+        margin-bottom: 20px;
+        border-radius: 7px;
+        display: flex;
+        justify-content: left;
+    }
+</style>
+  
