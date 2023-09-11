@@ -14,11 +14,10 @@
                 <h3>검사를 완료하였습니다.</h3>
                 <h3>아래의 결과보기 버튼을 누르시면 바로 결과 확인이 가능합니다.</h3>
             </div>
-
         </div>
       
     </div>
-    <Button msg = '검사 결과 보러가기'  @click="Buttonclick"></Button>
+    <Button msg = '검사 결과 보러가기'  @click="go_to_result"></Button>
 </template>
 
 <script>
@@ -30,16 +29,25 @@
     components: {
       UpperSide,
       Button
+    },
+    methods: {
+        go_to_result : function () {
+            this.$router.push({
+                name: "Result",
+                query: {order: 1}
+            })
+        }
+
     }
   }
   </script>
 
 <style>
-    body {
+    /* body {
     margin: 0px;
     padding: 0px;
-    
-    }
+    } */
+
     .grey_box {
             width: 550px;
             height: 320px;
@@ -48,11 +56,20 @@
             text-align: center; /*텍스트를 가운데 정렬하기 위한 속성 */
             background-color: rgba(217, 217, 217, 0.5);
 
+            display: inline-block;
+            vertical-align: middle;
+            /*
             position: absolute;
+            display: block;
+            justify-content: center; /* 가로 가운데 정렬 
             top: 60%;
             left: 50%;
             transform: translate(-50%, -50%);
+            */
+            /* margin-left: 660px;
+            margin-right: 660px;        */
     }
+
     .grey_box img{
 
         width: 170px;
@@ -79,6 +96,9 @@
         font-weight: normal;
         line-height: 1px;
     }
+    .complete_msg{
+        display: block;
+    }
 
     #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -87,4 +107,6 @@
     text-align: center;
     color: #2c3e50;
     }
+
+
 </style>

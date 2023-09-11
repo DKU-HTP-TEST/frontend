@@ -10,6 +10,7 @@ import TestStartPage from '../views/TestStartPage'
 import TestPage from '../views/TestPage'
 import MainBeforeLoginView from '../views/MainBeforeLoginView.vue'
 import MainAfterLoginView from '../views/MainAfterLoginView.vue'
+import Result from '../views/Result.vue'
 
 const routes = [
     {
@@ -71,6 +72,13 @@ const routes = [
         name: "TestPage",
         component: TestPage
     },
+
+    {
+      path : '/result',
+      name : "Result",
+      component: Result
+    },
+
 ];
 
 

@@ -20,10 +20,12 @@
         display: table;
         height: 250px;
         width: 100%;
-        background-color: #F6B590;
+        /* width: 1870px; */
+        /* background-color: #F6B590;
         margin: 0px;
         padding: 0px;
     }
+    
     .main > h2 {
         display: table-cell;
         vertical-align: middle;
