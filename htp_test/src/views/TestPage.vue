@@ -1,6 +1,6 @@
 <template>
     <div class="main">
-        <h2>{{ this.order }}</h2>
+        <h2>STEP {{ this.order }}</h2>
         <img v-bind:src="image[order-1].img" style="width:30px; height:30px;">
     </div>
     
@@ -87,15 +87,18 @@
         margin: 0px;
         padding: 0px;
     }
+
     .main > h2 {
-        display: table-cell;
-        vertical-align: middle;
-        font-size: 35px;
+
+        font-size: 36px;
+        text-align: center;
+        color: black;
+        margin-top: 80px;
+        display: flex;
+        align-items: center; /*수직 가운데 정렬*/
+        justify-content: center; /*수평 가운데 정렬*/
     }
-    .main > img {
-      display: table-cell;
-      vertical-align: middle;
-    }
+
 
    body {
       margin: 0px;

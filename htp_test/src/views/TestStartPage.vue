@@ -1,4 +1,9 @@
 <template>
+    <UpperSide msg="HTP 검사 시작"></UpperSide>
+    <br><br><br><br><br><br><br>
+    <img src="../assets/HTP_logo.png" style="width:300px">
+    <h1>HTP 검사를 시작할게요!</h1>
+    <p>집, 나무, 사람 순서대로 그림을 업로드 해주세요.</p>
     <Button msg="다음" @click="start"></Button>
 </template>
 
@@ -22,10 +27,7 @@
     }
   };
 
-  
 
-  
-  
 
   </script>
   
@@ -34,22 +36,6 @@
       margin: 0px;
       padding: 0px;
     }
-    .circle-box {
-      display: table;
-      padding: 30px;
-      padding-left:290px;
-    }
-    hr {
-      margin-left: 20px;
-      margin-right: 20px;
-      margin-top: 40px;
-      border: none;
-      border-top: 3px dotted gainsboro;
-      color: white;
-      background-color: white;
-      height: 1px;
-      width: 300px;
-    }
   #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -57,5 +43,6 @@
     text-align: center;
     color: #2c3e50;
   }
+  
   </style>
   
