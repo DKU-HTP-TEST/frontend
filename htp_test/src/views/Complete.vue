@@ -17,7 +17,7 @@
         </div>
       
     </div>
-    <Button msg = '검사 결과 보러가기'  @click="Buttonclick"></Button>
+    <Button msg = '검사 결과 보러가기'  @click="go_to_result"></Button>
 </template>
 
 <script>
@@ -29,6 +29,15 @@
     components: {
       UpperSide,
       Button
+    },
+    methods: {
+        go_to_result : function () {
+            this.$router.push({
+                name: "Result",
+                query: {order: 1}
+            })
+        }
+
     }
   }
   </script>
