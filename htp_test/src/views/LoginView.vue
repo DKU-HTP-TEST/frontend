@@ -29,23 +29,38 @@
                 <router-link to="/findPW"> 비밀번호 찾기</router-link>
             </div>
             <div>
-                <button type="button" class="btn btn-primary" @click="login()">로그인</button>
+                <button type="button" class="btn btn-primary" @click="openModal=true">로그인</button>
             </div>
             <div class="signup">
-                <p>계정이 없으신가요?<router-link to="/signup" font-color="red">회원가입</router-link></p>
+                <p>계정이 없으신가요?<router-link to="/register" font-color="red">회원가입</router-link></p>
             </div>
         </div>
-
-        <b-modal  v-model="failModal" hide-footer>
-            <div v-if="showModalfail" style="text-align: center;">
-                <h1 class="modal-title fs-5" id="exampleModalToggleLabel3">로그인 실패</h1>
-            </div>
-        </b-modal>
     </div>
 </template>
 
 <script>
-
+    import Modal from "../components/Modal.vue";
+  
+    export default {
+        name: 'LoginView',
+        components: {
+            Modal
+        },
+        data() {
+            return {
+                openModal : false,
+            }
+        },
+        method: {
+            close(event){
+                if(event.target.classList.contains('modalcontent') || eveent.target.classList.contains('close')){
+                    this.openModal = false;
+                }else if(event.target.classList.contains('content')){
+                    this.openModal = true;
+                }
+            }
+        }
+    }
 </script>
 
 <style scoped>
@@ -147,5 +162,34 @@
         text-decoration: none;
         font-weight: bold;
         font-size: 12px;
+    }
+    .modalcontent {
+        width: 100%;
+        height: 100%;
+        background: rgb(0,0,0,0.6);
+        position: fixed;
+    }
+    .content {
+        width: 90%;
+        margin: 80px auto;
+        background: white;
+        border-radius: 5px;
+        padding: 20px 0;
+    }
+    .close {
+        cursor: pointer;
+        border: none;
+        background: #6667AB;
+        color: white;
+        font-weight: bold;
+        border-radius: 5px;
+        padding: 5px 15px;
+    }
+    .close:hover {
+        color: white;
+        font-weight: bold;
+        align-content: center;
+        /* transform: scale(1,1);
+        transition: all 0.5s; */
     }
 </style>

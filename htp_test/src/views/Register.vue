@@ -90,7 +90,10 @@ Sketch Mind는 원칙적으로 보유기간의 경과, 개인정보의 수집 �
     components: {
       UpperSide,
       Button
-    }
+    },
+    // Buttonclick () {
+    //   this.$router.push({path: 'register2'})
+    // }
   }
   </script>
   

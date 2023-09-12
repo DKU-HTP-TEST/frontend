@@ -36,8 +36,8 @@
                 .<br/>.<br/>.
             </p>
             <div>
-                <!-- @click 바꿔야함 -->
-                <button type="button" class="btn btn-primary" @click="login()">HTP 검사 시작하기</button>
+                <!-- @click 바꿔야함 @click="__()"-->
+                <button type="button" class="btn btn-primary">HTP 검사 시작하기</button>
             </div>
         </div>
     </div>
