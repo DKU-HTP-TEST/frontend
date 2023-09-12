@@ -3,9 +3,9 @@
         <div class="change">
             <!-- 라우터 경로 변경 필요 -->
             <br>
-            <router-link to="/findID">로그인</router-link>
+            <router-link to="/login">로그인</router-link>
             &nbsp; | &nbsp;
-            <router-link to="/findPW"> 회원가입 &nbsp;&nbsp;&nbsp;</router-link>
+            <router-link to="/register"> 회원가입 &nbsp;&nbsp;&nbsp;</router-link>
         </div>
         <header>
             <img src="../assets/orangeLogo.png" style="width:250px; height:200px;">
@@ -37,13 +37,32 @@
             </p>
             <div>
                 <!-- @click 바꿔야함 -->
-                <button type="button" class="btn btn-primary" @click="login()">HTP 검사 시작하기</button>
+                <!-- <button type="button" class="btn btn-primary" @click="login()">HTP 검사 시작하기</button> -->
+                <!-- <button type="button" class="btn btn-primary" @click="showPopup">HTP 검사 시작하기</button>
+                <Modal></Modal> -->
+                <!-- <button type="button" class="btn btn-primary" @click="props">HTP 검사 시작하기</button> -->
+                <Modal :visible="false" variant="success" msg="HTP 검사 시작하기" title="로그인이 필요한 서비스 입니다" msg2="로그인하러 가기"></Modal>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import Modal from "../components/Modal.vue";
+
+export default {
+    name: 'MainBeforeLoginView',
+    components: {
+      Modal
+    },
+    props: {
+        title: String,
+        msg2: String,
+        msg: String,
+        visible: Boolean,
+    },
+  }
+
 
 </script>
 
