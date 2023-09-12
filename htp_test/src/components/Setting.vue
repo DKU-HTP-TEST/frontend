@@ -1,5 +1,5 @@
 <template>
-    <div style="display: flex;">
+    <div style="height: 80px; width: 100%">
         <h3>회원 정보 수정</h3>
         <div class="modify_btn" @click="modify_func">
             <img src="../assets/modify-icon.png">
@@ -79,9 +79,9 @@
   
 </script>
   
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped> 
     h3 {
+        float: left;
         padding-top: 50px;
         padding-left: 80px;
         font-weight: 70;
@@ -110,18 +110,20 @@
     }
 
     .modify_btn { 
-        margin-top: 65px;
-        margin-left: 30px;
+        display: flex;
+        margin-right: 70px;
+        margin-top: 50px;
         float: right;
+        justify-content: right;
     }
 
     img {
-        width: 20px;
-        height: 20px;
+        width: 30px;
+        height: 30px;
     }
 
     .btn_area {
-        margin-top: 250px;
+        margin-top: 200px;
         margin-right: 70px;
         float: right;
     }

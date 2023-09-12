@@ -1,14 +1,13 @@
 <template>
-    <div class="main">
         <div class="title">
-            <div class="edit_img">
-                <h1>심리검사 결과</h1>
-                <img class="edit" src="@/assets/edit.png" alt="Edit Image" @click="showDeleteButton">
+            <h3>심리검사 결과</h3>
+            <div class="edit_img" @click="showDeleteButton">
+                <img src="../assets/modify-icon.png">
             </div>
-            <hr>
         </div>
-
+        <hr>
         <div class="container">
+            
             <div class = "menu">
                 <div class="list">
                     <div class="date">23.07.22(금)<span class="more">&gt;</span>
@@ -46,7 +45,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </template>
 
 <script>
@@ -60,7 +58,7 @@ export default {
 
     data() {
         return{
-            datelist: [{"date":"2020-02-02"},{"date":"2021-01-01" }, {"date":"2022-01-01" }, {"date":"2023-01-01" }], // 새로운 데이터를 저장할 배열
+            datelist: [{"date":"2020-02-02  "},{"date":"2021-01-01  " }, {"date":"2022-01-01  " }, {"date":"2023-01-01  " }], // 새로운 데이터를 저장할 배열
             isDeleteButtonVisible: false, // 이미지 클릭 상태
         };
         
@@ -88,49 +86,47 @@ export default {
             this.datelist.splice(index, 1); // 해당 아이템을 삭제
         },
 
-        
-
   },
       
 }
 </script>
 
 <style scoped>
-    .main {
-        display: block;
-        margin-top: 60px;
-        margin-left: 700px;
-    }
-    .edit_img{
-        display: block; 
-    }
-
     .title {
-        display: block;
-        margin-left: 10px;
+        height: 80px;
+        width: 100%;
     }
-    
-    .edit_img > h1 {
-        display: flex; 
-        float: left; 
+    .title > h3 {
+        padding-top: 50px;
+        padding-left: 80px;
+        font-weight: 70;
+        font-size: 25px;
         text-align: left;
+        color: black;
+        margin: 0;
+        display: flex;
+        float: left;
+        align-items: center; /*수직 가운데 정렬*/
+        justify-content: left; /*수평 왼쪽 정렬*/
         
     }
-    .edit_img > img{
+    .edit_img{
         display: flex;
+        margin-right: 70px;
+        margin-top: 50px;
         float: right;
+        justify-content: right;
+    }
+
+    .edit_img > img {
         width: 30px;
         height: 30px;
-        margin-top: 33px;
-        margin-right: 30px;
     }
-    .title > hr {
-        width: 1080px;
-        color: black;
-        margin-left: -10px;
-        margin-top: 5px;
-        border: none; 
-        border-top: 1px solid black; 
+
+    hr {
+        margin-top: 30px;
+        margin-left: 70px;
+        margin-right: 70px;
     }
 
     .container {
@@ -139,11 +135,13 @@ export default {
     }
     .menu {
         display: inline-block;
-        margin-left: 25px; 
+        margin-left: 70px; 
         width: 460px;
         height: 700px;
+        margin-right: 70px;
     }
     .results {
+        justify-content: right;
         background-color: rgba(246, 181, 144, 0.1);
         width: 520px;
         height: 700px;
