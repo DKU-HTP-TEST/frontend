@@ -34,7 +34,7 @@
         go_to_result : function () {
             this.$router.push({
                 name: "Result",
-                query: {order: 1}
+                // query: {order: 1}
             })
         }
 

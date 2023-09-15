@@ -57,7 +57,7 @@ const routes = [
     
     {
         path: '/mypage',
-        name: "Mypage",
+        name: "mypage",
         component: Mypage
     },
 
@@ -74,7 +74,7 @@ const routes = [
     },
 
     {
-      path : '/result',
+      path : '/Result',
       name : "Result",
       component: Result
     },
