@@ -23,7 +23,7 @@
                 </div>
                 <div class="list" :key="index" v-for="(item, index) in datelist">
                     <div class="date">{{ item.date }}<span class="more">&gt;</span>
-                    <button class="delete-button" @click="deleteItem(index)" v-if="isDeleteButtonVisible">삭제</button>
+                    <button class="delete-button" @click="deleteItem(index)" v-if="isDeleteButtonVisible">X</button>
                     </div>
                     <hr>
                 </div>
@@ -170,6 +170,11 @@ export default {
         display: inline-block;
         /* display: none; */
         margin-left: 18px;
+        background-color: rgba(246, 181, 144, 0.44);
+        border: 0.5px solid grey;
+        color: #FF0000  ;
+        border-radius: 3px;
+        
     }
     .list > hr {
         width: 340px;
