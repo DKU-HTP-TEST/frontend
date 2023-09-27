@@ -29,6 +29,11 @@
     components: {
       UpperSide,
       Button
+    },
+    methods: {
+        Buttonclick: function() {
+            window.location.replace('http://localhost:8080/login')
+        }
     }
   }
   </script>

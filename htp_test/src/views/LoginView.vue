@@ -5,7 +5,7 @@
                 로그인
             </h3>
         </header>
-        <img src="../assets/HTP_logo2.png">
+        <router-link to="MainBeforeLogin"><img src="../assets/HTP_logo2.png"></router-link>
         <div class="loginpage">
             <!-- <div>
                 <p>아이디</p>
