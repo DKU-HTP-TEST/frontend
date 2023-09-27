@@ -106,8 +106,12 @@
             .catch((error) => {
                 console.log(error.response);
             });
-            if (this.issuc) {
-                window.location.replace('http://localhost:8080/register3/')
+        }
+    },
+    watch: {
+        issuc () {
+            if (this.issuc == true) {
+                window.location.replace('http://localhost:8080/register3')
             }
         }
     }

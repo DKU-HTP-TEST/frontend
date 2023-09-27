@@ -92,9 +92,38 @@ Sketch Mind는 원칙적으로 보유기간의 경과, 개인정보의 수집 �
       UpperSide,
       Button
     },
-    // Buttonclick () {
-    //   this.$router.push({path: 'register2'})
-    // }
+    data: () => {
+      return {
+        c1: false,
+        c2: false,
+        c3: false,
+        all: false,
+      }
+    },
+    watch: {
+      all() {
+        if (this.all == true) {
+          this.c1 = true
+          this.c2 = true
+          this.c3 = true
+        }
+        else {
+          this.c1 = false
+          this.c2 = false
+          this.c3 = false
+        }
+      }
+    },
+    methods: {
+      Buttonclick() {
+        if (this.c1 == true & this.c2 == true & this.c3 ==true) {
+          window.location.replace("http://localhost:8080/register2")
+        }
+        else {
+          alert("약관에 모두 동의해주세요.")
+        }
+      }
+    }
   }
   </script>
   
