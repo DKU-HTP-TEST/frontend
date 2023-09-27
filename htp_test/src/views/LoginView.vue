@@ -5,7 +5,7 @@
                 로그인
             </h3>
         </header>
-        <img src="../assets/HTP_logo2.png">
+        <router-link to="MainBeforeLogin"><img src="../assets/HTP_logo2.png"></router-link>
         <div class="loginpage">
             <!-- <div>
                 <p>아이디</p>
@@ -32,7 +32,7 @@
                 <button type="button" class="btn btn-primary" @click="login()">로그인</button>
             </div>
             <div class="signup">
-                <p>계정이 없으신가요?<router-link to="/signup" font-color="red">회원가입</router-link></p>
+                <p>계정이 없으신가요?<router-link to="/register" font-color="red">회원가입</router-link></p>
             </div>
         </div>
 

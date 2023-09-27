@@ -3,9 +3,9 @@
         <div class="change">
             <!-- 라우터 경로 변경 필요 -->
             <br>
-            <router-link to="/findID">로그인</router-link>
+            <router-link to="/login">로그인</router-link>
             &nbsp; | &nbsp;
-            <router-link to="/findPW"> 회원가입 &nbsp;&nbsp;&nbsp;</router-link>
+            <router-link to="/register"> 회원가입 &nbsp;&nbsp;&nbsp;</router-link>
         </div>
         <header>
             <img src="../assets/orangeLogo.png" style="width:250px; height:200px;">
@@ -44,6 +44,13 @@
 </template>
 
 <script>
+export default {
+    methods: {
+        login: function() {
+            
+        }
+    }
+}
 
 </script>
 
