@@ -30,7 +30,7 @@
 Sketch Mind 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 Sketch Mind 서비스의 이용과 관련하여 Sketch Mind 서비스를 제공하는 Sketch Mind와 이를 이용하는 Sketch Mind 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 Sketch Mind 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.
             </textarea>
             <br/>
-            <input type="checkbox" id="check_1"  name="" /> 위의 약관에 동의 합니다.<br/>
+            <input type="checkbox" id="check_1" v-model="c1" name="" /> 위의 약관에 동의 합니다.<br/>
         </div>
         <div class="scheme-g">
             <h4> 개인정보 수집 및 이용에 대한 안내(필수)</h4>
@@ -57,7 +57,7 @@ Sketch Mind는 원칙적으로 보유기간의 경과, 개인정보의 수집 �
 정보주체는 개인정보 수집에 동의를 거부할 권리가 있습니다. 다만, 필수 항목에 대한 동의를 거부할 시 저희가 제공하는 서비스를 이용할 수 없습니다.
             </textarea>
             <br/>
-            <input type="checkbox" id="check_2"  name="" /> 위의 약관에 동의 합니다.<br />
+            <input type="checkbox" id="check_2" v-model="c2" name="" /> 위의 약관에 동의 합니다.<br />
         </div>
         <div class="scheme-g">
             <h4>개인정보 제3자 제공 동의(필수)</h4>
@@ -72,10 +72,10 @@ Sketch Mind는 원칙적으로 보유기간의 경과, 개인정보의 수집 �
 「개인정보보호법 제15조(개인정보의 수집․이용), 제17조(개인정보의 제공), 제18조(개인정보의 이용․제공 제한), 제22조(동의를 받는 방법)」에 의거 개인정보처리에 관하여 고지를 받았으며 본인은 위와 같이 개인정보 수집 및 이용․제공에 동의합니다.
             </textarea>
             <br/>
-            <input type="checkbox" id="check_3"  name="" /> 위의 약관에 동의 합니다.<br />
+            <input type="checkbox" id="check_3" v-model="c3" name="" /> 위의 약관에 동의 합니다.<br />
         </div>
         <p>
-            <input type="checkbox" id="check_all"  name="checkAll" />모두 동의<br />
+            <input type="checkbox" id="check_all" v-model="all" name="checkAll" />모두 동의<br />
         </p>
     </div>
     <Button msg="다음" @click="Buttonclick"/>
@@ -84,6 +84,7 @@ Sketch Mind는 원칙적으로 보유기간의 경과, 개인정보의 수집 �
   <script>
   import UpperSide from '../components/UpperSide.vue';
   import Button from "../components/Button.vue";
+
   
   export default {
     name: 'Register',
@@ -91,9 +92,38 @@ Sketch Mind는 원칙적으로 보유기간의 경과, 개인정보의 수집 �
       UpperSide,
       Button
     },
-    // Buttonclick () {
-    //   this.$router.push({path: 'register2'})
-    // }
+    data: () => {
+      return {
+        c1: false,
+        c2: false,
+        c3: false,
+        all: false,
+      }
+    },
+    watch: {
+      all() {
+        if (this.all == true) {
+          this.c1 = true
+          this.c2 = true
+          this.c3 = true
+        }
+        else {
+          this.c1 = false
+          this.c2 = false
+          this.c3 = false
+        }
+      }
+    },
+    methods: {
+      Buttonclick() {
+        if (this.c1 == true & this.c2 == true & this.c3 ==true) {
+          window.location.replace("http://localhost:8080/register2")
+        }
+        else {
+          alert("약관에 모두 동의해주세요.")
+        }
+      }
+    }
   }
   </script>
   
