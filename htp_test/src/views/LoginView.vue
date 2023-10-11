@@ -18,7 +18,7 @@
             <div class="loginIDPW">
                 <p>아이디</p>
             </div>
-            <input type="text" v-model="username" placeholder=""/>
+            <input type="text" v-model="user_id" placeholder=""/>
             <br>
             <div class="loginIDPW">
                 <p>비밀번호</p>
@@ -29,7 +29,7 @@
                 <router-link to="/findPW"> 비밀번호 찾기</router-link>
             </div>
             <div>
-                <button type="button" class="btn btn-primary" @click="openModal=true">로그인</button>
+                <button type="button" class="btn btn-primary" @click="openModal=true; login()">로그인</button>
             </div>
             <div class="signup">
                 <p>계정이 없으신가요?<router-link to="/register" font-color="red">회원가입</router-link></p>
@@ -40,6 +40,9 @@
 
 <script>
     import Modal from "../components/Modal.vue";
+
+    import axios from "axios";
+    let url = "http://127.0.0.1:8000/login/"
   
     export default {
         name: 'LoginView',
@@ -49,14 +52,37 @@
         data() {
             return {
                 openModal : false,
+                user_id: '',
+                passowrd: '',
+                issuc: false,
             }
         },
-        method: {
+        methods: {
             close(event){
                 if(event.target.classList.contains('modalcontent') || eveent.target.classList.contains('close')){
                     this.openModal = false;
                 }else if(event.target.classList.contains('content')){
                     this.openModal = true;
+                }
+            },
+            login: function() {
+              var data = {
+                user_id: this.user_id,
+                password: this.password,
+              } 
+              axios.post(url, new URLSearchParams(data))
+              .then((response) => {
+                this.issuc = true
+              })
+              .catch((error) => {
+                console.log(error.response);
+              });
+            }
+        },
+        watch: {
+            issuc() {
+                if(this.issuc == true) {
+                    window.location.replace('http://localhost:8080/MainAfterLogin')
                 }
             }
         }
