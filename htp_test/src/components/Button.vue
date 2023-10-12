@@ -1,5 +1,5 @@
 <template>
-    <div class="btn btn-primary">
+    <div>
         <button type="button" class="btn btn-primary" @click="Buttonclick">{{ msg }}</button>
     </div>
 </template>
@@ -32,10 +32,10 @@
         text-align: center;
         font-size: 15px;
 
-        position: absolute;
+        /* position: absolute;
         top: 85%;
         left: 50%;
-        transform: translate(-50%, -50%);  /* 페이지 중앙에 위치 */
+        transform: translate(-50%, -50%);  페이지 중앙에 위치 */
     }
 
 </style>
