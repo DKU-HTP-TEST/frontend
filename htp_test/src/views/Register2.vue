@@ -22,7 +22,7 @@
                 <div>
                     아이디 <span style="color: red">*</span>
                 </div>
-                <input type="text" v-model="user_id" placeholder=""/>
+                <input type="text" class="id_input" v-model="user_id" placeholder=""/>
                 <button type="button" class="btn2 btn-primary">중복 확인</button>
             </div>
             <!-- 비밀번호 입력 -->
@@ -156,6 +156,24 @@
     }
     .Register_input {
         text-align: center;
+    }
+    input {
+        border-color: black;
+        border-radius: 8px;
+        outline: none;
+        font-size: 16px;
+        padding: 10px 0;
+        width: 349px;
+        height: 20px;
+    }
+    .id_input{
+        border-color: black;
+        border-radius: 8px;
+        outline: none;
+        font-size: 16px;
+        padding: 10px 0;
+        width: 283px;
+        height: 20px;
     }
     #app {
         font-family: Avenir, Helvetica, Arial, sans-serif;
