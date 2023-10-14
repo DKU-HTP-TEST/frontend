@@ -17,6 +17,8 @@
           <p>회원가입<br>완료</p>
         </div>
     </div>
+
+    
     <div class="content">
         <div>
             <h2>이용 약관 동의</h2>
