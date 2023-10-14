@@ -1,14 +1,14 @@
 <template>
     <UpperSide msg = 'HTP 검사 결과'/>
     <div class="block">
-      <div class="container">
-        <div class="colum">
+      <div class="container1">
+        <div class="row">
             <TestResult msg = 'HOUSE 검사 결과' msg2 = 'asdfasdfasdf'/>
         </div>
-        <div class="colum">
+        <div class="row">
             <TestResult msg = 'TREE 검사 결과' msg2 = 'asdfasdfasdf'/>
         </div>
-        <div class="colum">
+        <div class="row">
             <TestResult msg = 'HUMAN 검사 결과' msg2 = 'asdfasdfasdf'/>
         </div>
       </div>
@@ -20,14 +20,11 @@
       </div>
     </div>
     
-    <!-- <div class = "btn">
-        <Button msg="처음으로" @click="Buttonclick"></Button>
-    </div> -->
 
 </template>
 <script>
 import UpperSide from '../components/UpperSide.vue';
-import TestResult from '@/components/TestResult.vue';
+import TestResult from '../components/TestResult.vue';
 import Button from '../components/Button.vue';
 
 export default {
@@ -55,19 +52,25 @@ export default {
     }
 
     /* 화면을 세로로 3등분*/
-    .container {
-      display: flex;
-      /* height: 100vh;  */
+    .container1 {
+      /* border: 1px solid red; */
+      display: flex;  
+      overflow-x: hidden;  /* 수평 스크롤 비활성화 */
+
+      padding-left: 40px;
+      padding-right: 40px;
+      margin-top: 10px;
     }
 
-
-    .column {
-      flex: 1; 
-      padding: 20px; /* 열 사이 간격 조절 */
-      border: 1px solid #ccc; 
+    .row { 
+      flex: 1;
+      padding: 20px; 
+      /* border: 1px solid blue;  */
+      justify-content: center; 
     }
+
     .button {
-      margin-top: 50px;
+      margin-top: 20px;
     }
     .go_to_h, .go_to_mp {
       width: 300px;
