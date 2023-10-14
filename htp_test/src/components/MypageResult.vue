@@ -9,7 +9,7 @@
         <div class="container">
             
             <div class = "menu">
-                <div class="list">
+                <!-- <div class="list">
                     <div class="date">23.07.22(금)<span class="more">&gt;</span>
                         <button class="delete-button" @click="deleteItem(index)" v-if="isDeleteButtonVisible">삭제</button>
                     </div>
@@ -20,7 +20,7 @@
                     <button class="delete-button" @click="deleteItem(index)" v-if="isDeleteButtonVisible">삭제</button>
                     </div>
                     <hr>
-                </div>
+                </div> -->
                 <div class="list" :key="index" v-for="(item, index) in datelist">
                     <div class="date">{{ item.date }}<span class="more">&gt;</span>
                     <button class="delete-button" @click="deleteItem(index)" v-if="isDeleteButtonVisible">X</button>
@@ -144,20 +144,23 @@ export default {
         justify-content: right;
         background-color: rgba(246, 181, 144, 0.1);
         width: 520px;
-        height: 700px;
+        height: 720px;
+        
         margin-left: 40px; 
         border-radius: 5%;
     }
     .results > h2 {
         text-align: left;
         margin-left: 30px;
-        margin-bottom: 0;
+        margin-top: 20px;
         color: #FF0000;
+        font-size: xx-large;
     }
     .results > h3 {
         text-align: left;
         margin-left: 30px;
-        margin-bottom: 0;
+        margin-top: 20px;
+        font-size: x-large;
     }
     
     .list {
@@ -171,9 +174,10 @@ export default {
         /* display: none; */
         margin-left: 18px;
         background-color: rgba(246, 181, 144, 0.44);
-        border: 0.5px solid grey;
+        border: 0.8px solid black;
         color: #FF0000  ;
         border-radius: 3px;
+        font-size: small;
         
     }
     .list > hr {
