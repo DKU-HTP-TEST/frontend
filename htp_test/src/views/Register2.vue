@@ -18,43 +18,42 @@
         </div>
         <div class = "Register_input">
             <!-- 아이디 입력 -->
-            <div class="Registerpage">
-                <div>
-                    아이디 <span style="color: red">*</span>
-                </div>
-                <input type="text" v-model="user_id" placeholder=""/>
+            <div class="RegisID">
+                <p>아이디<span style="color: red">*</span></p>
+                <input type="text" class="id_input" v-model="user_id" placeholder=""/>
                 <button type="button" class="btn2 btn-primary">중복 확인</button>
             </div>
-            <!-- 비밀번호 입력 -->
-            <div class="">
+            <!-- 비밀번호 -->
+            <div class="RegisPW">
                 <div>
-                    비밀번호<span style="color: red">*</span>
+                    <p>비밀번호<span style="color: red">*</span></p>
+                    <input type="text" v-model="password" placeholder=""/>
                 </div>
-                <input type="text" v-model="password" placeholder=""/>
+                <br>
+                <div>
+                    <p>비밀번호 확인</p>
+                    <input type="text" v-model="password_check" placeholder=""/>
+                    <p v-if="ispassword" style="color: red">비밀번호가 일치하지 않습니다.</p>
+                </div>
             </div>
-            <!-- 비밀번호 확인 -->
-            <div class="">
+            <!-- <div class="">
                 <div>
                     비밀번호 확인
                 </div>
                 <input type="text" v-model="password_check" placeholder=""/>
                 <p v-if="ispassword" style="color: red">비밀번호가 일치하지 않습니다.</p>
-            </div>
+            </div> -->
             <!-- 이름 입력 -->
-            <div class="">
-                <div>
-                    이름 <span style="color: red">*</span>
-                </div>
+            <div class="Name">
+                <p>이름 <span style="color: red">*</span></p>
                 <input type="text" v-model="username" placeholder=""/>
             </div>
             <!-- 이메일 입력 -->
-            <div class="">
-                <div>
-                    e-mail <span style="color: red">*</span>
-                </div>
+            <div class="Email">
+                <p>e-mail <span style="color: red">*</span></p>
                 <input type="text" v-model="useremail" placeholder=""/>
             </div>
-            <p style="font-color: red;"> *필수 입력 사항</p>
+            <p class="notice"> *필수 입력 사항</p>
         </div>
     <Button msg="다음" @click="register()"/>
 </template>
@@ -124,9 +123,13 @@
         padding: 0px;
     }
     .circle-box {
-        display: table;
+        /* display: table;
         padding: 30px;
-        padding-left:290px;
+        padding-left:290px; */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 20px 90px 20px 90px;
     }
     hr {
         margin-left: 20px;
@@ -140,22 +143,101 @@
         width: 300px;
     }
     .circle {
-        display: table-cell;
+        /* display: table-cell;
         vertical-align: center;
         width:100px;
         height:auto;
         background-color: gainsboro;
+        border-radius: 50%; */
+        display: table-cell;
+        vertical-align: middle;
+        width: 100px;
+        height: 100px;
+        background-color: gainsboro;
         border-radius: 50%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
     .circle #c1 {
         background-color: gray;
+        margin: 0;
     }
     .circle #c2,
     .circle #c3{
         background-color: #F3F3F3;
+        margin: 0;
     }
-    .Register_input {
+    .Register_input  {
+        /* text-align: center;
+        height: calc(100vh - 132px); */
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .RegisID{
+        /* display: flex; */
+        text-align: left;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 30px;
+        margin-bottom: 8px;
+    }
+    .RegisID p {
+        margin: 0;
+    }
+    .RegisPW{
+        /* display: flex; */
+        text-align: left;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+    .RegisPW p {
+        margin: 0;
+    }
+    .Name{
+        /* display: flex; */
+        text-align: left;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+    .Name p {
+        margin: 0;
+    }
+    .Email{
+        /* display: flex; */
+        text-align: left;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+    .Email p {
+        margin: 0;
+    }
+    input {
+        border-color: black;
+        border-radius: 8px;
+        outline: none;
+        font-size: 16px;
+        padding: 10px 0;
+        width: 349px;
+        height: 20px;
+    }
+    .id_input{
+        border-color: black;
+        border-radius: 8px;
+        outline: none;
+        font-size: 16px;
+        padding: 10px 0;
+        width: 283px;
+        height: 20px;
     }
     #app {
         font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -170,5 +252,9 @@
 
         background-color: #D9D9D9;
         font-size: 10px;
+    }
+    .notice {
+        color: red;
+        margin-bottom: 30px;
     }
 </style>

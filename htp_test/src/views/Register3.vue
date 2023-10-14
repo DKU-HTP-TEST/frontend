@@ -16,7 +16,9 @@
                 <p>회원가입<br>완료</p>
             </div>
         </div>
+        <div class="Success">
             <span>회원가입 성공!</span>
+        </div>
         <Button msg="로그인하러 가기" @click="Buttonclick"/>
 </template>
 
@@ -44,9 +46,10 @@
         padding: 0px;
     }
     .circle-box {
-        display: table;
-        padding: 30px;
-        padding-left:290px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 20px 90px 20px 90px;
     }
     hr {
         margin-left: 20px;
@@ -61,21 +64,32 @@
     }
     .circle {
         display: table-cell;
-        vertical-align: center;
-        width:100px;
-        height:auto;
+        vertical-align: middle;
+        width: 100px;
+        height: 100px;
         background-color: gainsboro;
         border-radius: 50%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
     .circle #c1 {
         background-color: gray;
+        margin: 0;
     }
     .circle #c2,
     .circle #c3{
         background-color: #F3F3F3;
+        margin: 0;
     }
     span {
         text-align: center;
+        font-size: 30px;
+    }
+    .Success {
+        margin-top: 190px;
+        margin-bottom: 190px;
     }
     #app {
         font-family: Avenir, Helvetica, Arial, sans-serif;
