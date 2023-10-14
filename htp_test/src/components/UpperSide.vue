@@ -42,10 +42,9 @@
         font-size: 36px;
         text-align: senter;
         color: black;
-        margin: 0;
         display: flex;
         align-items: center; /*수직 가운데 정렬*/
-        justify-content: center; /*수평 가운데 정렬*/
+        /* justify-content: center; 수평 가운데 정렬 */
     }
 </style>
   

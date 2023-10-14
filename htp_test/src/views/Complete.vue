@@ -49,6 +49,8 @@
     } */
 
     .grey_box {
+            margin-top: 40px;
+            margin-bottom: 50px;
             width: 550px;
             height: 320px;
             background-color: #D9D9D9;
@@ -58,6 +60,7 @@
 
             display: inline-block;
             vertical-align: middle;
+
             /*
             position: absolute;
             display: block;
@@ -74,7 +77,7 @@
 
         width: 170px;
         height: 170px;
-        margin-top: 20px;
+        margin-top: 25px;
         margin-bottom: 15px;
         margin-left: 40px;
         
@@ -82,9 +85,10 @@
     }
     .msg2 h3 {
         font-size: 18px;
-        line-height: 12px;
+        line-height: 17px;
         color: black;
         font-weight: normal;
+        margin-top: 5px;
     }
     .msg1 h2{
         margin-top: 40px;
@@ -99,6 +103,8 @@
     .complete_msg{
         display: block;
     }
+
+    
 
     #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;

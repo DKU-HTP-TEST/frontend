@@ -17,8 +17,6 @@
           <p>회원가입<br>완료</p>
         </div>
     </div>
-
-    
     <div class="content">
         <div>
             <h2>이용 약관 동의</h2>
@@ -46,40 +44,40 @@ Sketch Mind는 이용자의 사전 동의 없이는 이용자의 개인정보를
 다. 기술보호지원 서비스 제공
 라. 홍보 등의 활용
 
-2. 수집하는 개인정보의 항목
-가. 일반회원 가입
-- 성명, 이메일, 아이디, 비밀번호
-나. 자동 수집
-- IP주소, 쿠키, 서비스 이용 기록, 방문기록 등
+    2. 수집하는 개인정보의 항목
+    가. 일반회원 가입
+    - 성명, 이메일, 아이디, 비밀번호
+    나. 자동 수집
+    - IP주소, 쿠키, 서비스 이용 기록, 방문기록 등
 
-3. 개인정보 보유 및 이용기간
-Sketch Mind는 원칙적으로 보유기간의 경과, 개인정보의 수집 및 이용목적의 달성 등 그 개인정보가 불필요하게 되었을 때에는 지체 없이 파기합니다. 다만, 다른 법령에 따라 보존하여야 하는 경우에는 그러하지 않을 수 있습니다. 불필요하게 되었을 때에는 지체 없이 해당 개인정보를 파기합니다.
-                
-4. 동의 거부 및 불이익
-정보주체는 개인정보 수집에 동의를 거부할 권리가 있습니다. 다만, 필수 항목에 대한 동의를 거부할 시 저희가 제공하는 서비스를 이용할 수 없습니다.
-            </textarea>
-            <br/>
-            <input type="checkbox" id="check_2" v-model="c2" name="" /> 위의 약관에 동의 합니다.<br />
+    3. 개인정보 보유 및 이용기간
+    Sketch Mind는 원칙적으로 보유기간의 경과, 개인정보의 수집 및 이용목적의 달성 등 그 개인정보가 불필요하게 되었을 때에는 지체 없이 파기합니다. 다만, 다른 법령에 따라 보존하여야 하는 경우에는 그러하지 않을 수 있습니다. 불필요하게 되었을 때에는 지체 없이 해당 개인정보를 파기합니다.
+                    
+    4. 동의 거부 및 불이익
+    정보주체는 개인정보 수집에 동의를 거부할 권리가 있습니다. 다만, 필수 항목에 대한 동의를 거부할 시 저희가 제공하는 서비스를 이용할 수 없습니다.
+                </textarea>
+                <br/>
+                <input type="checkbox" id="check_2" v-model="c2" name="" /> 위의 약관에 동의 합니다.<br />
+            </div>
+            <div class="scheme-g">
+                <h4>개인정보 제3자 제공 동의(필수)</h4>
+                <textarea style="font-size:1em;">
+    다음과 같이 개인정보를 제3자에게 제공하고 있습니다.
+    1. 개인정보를 제공받는자 : ooo 전문가
+    2. 제공 받은 자의 개인정보 이용 목적 : 심리검사 분석
+    3. 제공하는 개인정보 항목 : 그림
+    4. 제공받는 자의 보유 및 이용기간 : 회원 탈퇴시
+    개인정보 제공자가 동의한 내용외의 다른 목적으로 이용하지 않으며, 정보주체는 개인정보처리자에게 열람, 정정, 삭제를 요구할 수 있습니다.
+    만 14세 미만 아동인 경우 반드시 법정대리인의 동의가 필요합니다.
+    「개인정보보호법 제15조(개인정보의 수집․이용), 제17조(개인정보의 제공), 제18조(개인정보의 이용․제공 제한), 제22조(동의를 받는 방법)」에 의거 개인정보처리에 관하여 고지를 받았으며 본인은 위와 같이 개인정보 수집 및 이용․제공에 동의합니다.
+                </textarea>
+                <br/>
+                <input type="checkbox" id="check_3" v-model="c3" name="" /> 위의 약관에 동의 합니다.<br />
+            </div>
+            <p>
+                <input type="checkbox" id="check_all" v-model="all" name="checkAll" />모두 동의<br />
+            </p>
         </div>
-        <div class="scheme-g">
-            <h4>개인정보 제3자 제공 동의(필수)</h4>
-            <textarea style="font-size:1em;">
-다음과 같이 개인정보를 제3자에게 제공하고 있습니다.
-1. 개인정보를 제공받는자 : ooo 전문가
-2. 제공 받은 자의 개인정보 이용 목적 : 심리검사 분석
-3. 제공하는 개인정보 항목 : 그림
-4. 제공받는 자의 보유 및 이용기간 : 회원 탈퇴시
-개인정보 제공자가 동의한 내용외의 다른 목적으로 이용하지 않으며, 정보주체는 개인정보처리자에게 열람, 정정, 삭제를 요구할 수 있습니다.
-만 14세 미만 아동인 경우 반드시 법정대리인의 동의가 필요합니다.
-「개인정보보호법 제15조(개인정보의 수집․이용), 제17조(개인정보의 제공), 제18조(개인정보의 이용․제공 제한), 제22조(동의를 받는 방법)」에 의거 개인정보처리에 관하여 고지를 받았으며 본인은 위와 같이 개인정보 수집 및 이용․제공에 동의합니다.
-            </textarea>
-            <br/>
-            <input type="checkbox" id="check_3" v-model="c3" name="" /> 위의 약관에 동의 합니다.<br />
-        </div>
-        <p>
-            <input type="checkbox" id="check_all" v-model="all" name="checkAll" />모두 동의<br />
-        </p>
-    </div>
     <Button msg="다음" @click="Buttonclick"/>
 </template>
   
@@ -135,9 +133,10 @@ Sketch Mind는 원칙적으로 보유기간의 경과, 개인정보의 수집 �
       padding: 0px;
     }
     .circle-box {
-      display: table;
-      padding: 30px;
-      padding-left:290px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 20px 90px 20px 90px;
     }
     hr {
       margin-left: 20px;
@@ -151,19 +150,25 @@ Sketch Mind는 원칙적으로 보유기간의 경과, 개인정보의 수집 �
       width: 300px;
     }
     .circle {
-      display: table-cell;
-      vertical-align: center;
-      width:100px;
-      height:100px;
-      background-color: gainsboro;
-      border-radius: 50%;
+        display: table-cell;
+        vertical-align: middle;
+        width: 100px;
+        height: 100px;
+        background-color: gainsboro;
+        border-radius: 50%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
     .circle #c1 {
       background-color: gray;
+      margin: 0;
     }
     .circle #c2,
     .circle #c3{
       background-color: #F3F3F3;
+      margin: 0;
     }
   #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;

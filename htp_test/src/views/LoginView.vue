@@ -15,17 +15,18 @@
                 <input type="password" v-model="password" placeholder=""/>
                 <br>
             </div> -->
-            <div class="loginIDPW">
+            <div class="loginID">
                 <p>아이디</p>
+                <input type="text" v-model="user_id" placeholder=""/>
             </div>
-            <input type="text" v-model="user_id" placeholder=""/>
             <br>
-            <div class="loginIDPW">
+            <div class="loginPW">
                 <p>비밀번호</p>
+                <input type="password" v-model="password" placeholder=""/>
             </div>
-            <input type="password" v-model="password" placeholder=""/>
             <div class="findIDPW">
                 <router-link to="/findID">아이디 찾기 </router-link>
+                &nbsp; | &nbsp;
                 <router-link to="/findPW"> 비밀번호 찾기</router-link>
             </div>
             <div>
@@ -117,14 +118,25 @@
         flex-direction: column;
         align-items: center;
     }
-    .loginIDPW{
+    .loginID{
+        /* display: flex; */
+        text-align: left;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 30px;
+        margin-bottom: 8px;
+    }
+    .loginID p {
+        margin: 0;
+    }
+    .loginPW{
         /* display: flex; */
         text-align: left;
         flex-direction: column;
         align-items: flex-start;
         margin-bottom: 8px;
     }
-    .loginIDPW p {
+    .loginPW p {
         margin: 0;
     }
     .findIDPW {
@@ -136,6 +148,7 @@
         font-size: 15px;;
         display: flex;
         align-items: center;
+        margin-top: 10px;
     }
     .signup a{
         color: red;
