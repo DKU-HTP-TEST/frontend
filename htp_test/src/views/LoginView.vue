@@ -15,18 +15,17 @@
                 <input type="password" v-model="password" placeholder=""/>
                 <br>
             </div> -->
-            <div class="loginID">
+            <div class="loginIDPW">
                 <p>아이디</p>
-                <input type="text" v-model="user_id" placeholder=""/>
             </div>
+            <input type="text" v-model="user_id" placeholder=""/>
             <br>
-            <div class="loginPW">
+            <div class="loginIDPW">
                 <p>비밀번호</p>
-                <input type="password" v-model="password" placeholder=""/>
             </div>
+            <input type="password" v-model="password" placeholder=""/>
             <div class="findIDPW">
                 <router-link to="/findID">아이디 찾기 </router-link>
-                &nbsp; | &nbsp;
                 <router-link to="/findPW"> 비밀번호 찾기</router-link>
             </div>
             <div>
@@ -54,30 +53,28 @@
             return {
                 openModal : false,
                 user_id: '',
-                passowrd: '',
+                password: '',
                 issuc: false,
             }
         },
         methods: {
             close(event){
-                if(event.target.classList.contains('modalcontent') || eveent.target.classList.contains('close')){
+                if(event.target.classList.contains('modalcontent') || event.target.classList.contains('close')){
                     this.openModal = false;
                 }else if(event.target.classList.contains('content')){
                     this.openModal = true;
                 }
             },
-            login: function() {
-              var data = {
-                user_id: this.user_id,
-                password: this.password,
-              } 
-              axios.post(url, new URLSearchParams(data))
-              .then((response) => {
-                this.issuc = true
-              })
-              .catch((error) => {
-                console.log(error.response);
-              });
+            login() {
+                var data = {
+                    user_id: this.user_id,
+                    password: this.password,
+                };
+                axios.post(url, new URLSearchParams(data)).then(result => {
+                    this.issuc=true
+                }).catch((error) => {
+                    alert("유효한 아이디와 비밀번호를 입력해 주세요.")
+                })
             }
         },
         watch: {
@@ -118,25 +115,14 @@
         flex-direction: column;
         align-items: center;
     }
-    .loginID{
-        /* display: flex; */
-        text-align: left;
-        flex-direction: column;
-        align-items: flex-start;
-        margin-top: 30px;
-        margin-bottom: 8px;
-    }
-    .loginID p {
-        margin: 0;
-    }
-    .loginPW{
+    .loginIDPW{
         /* display: flex; */
         text-align: left;
         flex-direction: column;
         align-items: flex-start;
         margin-bottom: 8px;
     }
-    .loginPW p {
+    .loginIDPW p {
         margin: 0;
     }
     .findIDPW {
@@ -148,7 +134,6 @@
         font-size: 15px;;
         display: flex;
         align-items: center;
-        margin-top: 10px;
     }
     .signup a{
         color: red;

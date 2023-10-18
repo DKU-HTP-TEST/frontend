@@ -21,7 +21,8 @@
             <div class="RegisID">
                 <p>아이디<span style="color: red">*</span></p>
                 <input type="text" class="id_input" v-model="user_id" placeholder=""/>
-                <button type="button" class="btn2 btn-primary">중복 확인</button>
+                <button type="button" class="btn2 btn-primary" @click="id_check()">중복 확인</button>
+                <p style="color: blue;">{{ id_c }}</p>
             </div>
             <!-- 비밀번호 -->
             <div class="RegisPW">
@@ -64,6 +65,7 @@
 
   import axios from "axios";
   let url = "http://127.0.0.1:8000/register/";
+  let id_url = "http://127.0.0.1:8000/id_check/"
   
   export default {
     name: 'Register2',
@@ -76,6 +78,8 @@
                 useremail: '',
                 ispassword: false,
                 issuc: false,
+                id_c: '',
+                id: false,
         }
     },
     components: {
@@ -83,13 +87,33 @@
       Button
     },
     methods: {
+        id_check: function() {
+            var id_data = {user_id: this.user_id}
+            axios.post(id_url, new URLSearchParams(id_data))
+            .then((response) => {
+                this.id_c = '사용 가능한 아이디입니다.'
+                this.id = true
+            })
+            .catch((error) => {
+                this.id_c = '중복된 아이디가 존재합니다.'
+                this.id = false
+            })
+        },
         register: function() {
-            if (this.password != this.password_check) {
-                this.ispassword = true;
-                return;
+            if(!this.id) {
+                alert('아이디 중복확인을 해주세요.')
+                return
             }
+            if (!this.password || this.password != this.password_check) {
+                    this.ispassword = true;
+                    return;
+                }
             else {
                 this.ispassword = false;
+            }
+            if (!this.username || !this.useremail) {
+                alert('필수 항목을 입력해주세요.')
+                return
             }
             var data = {
                 user_id: this.user_id,
@@ -100,7 +124,6 @@
             axios.post(url, new URLSearchParams(data))
             .then((response) => {
                 this.issuc = true
-                console.log(response);
             })
             .catch((error) => {
                 console.log(error.response);
