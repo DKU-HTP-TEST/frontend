@@ -3,25 +3,34 @@
         <h2>STEP {{ this.order }}</h2>
         <img v-bind:src="image[order-1].img" style="width:30px; height:30px;">
     </div>
-    
-    
-    <div class="circle-box"> <!--절차 원-->
-      <div class="circle" style="margin-left: 70px;">집</div>
-      <hr/>
-      <div class="circle" id="c2">나무</div>
-      <hr/>
-      <div class="circle" id="c3">사람</div> 
+
+    <div class="circle-box">
+        <div class="circle" id="c1">
+            <b>1</b>
+            <p>약관 동의</p>
+        </div>
+        <hr/>
+        <div class="circle" id="c2">
+            <b>2</b>
+            <p>회원정보<br>입력</p>
+        </div>
+        <hr/>
+        <div class="circle" id="c3">
+            <b>3</b>
+            <p>회원가입<br>완료</p>
+        </div>
     </div>
 
     <h3>{{image[order-1].name}} 그려주세요</h3>
     <label for="upload-file">
-      <div class="upload-box">
-      <img src="@/assets/camera-icon.png" id="camera">
-      <input type="file" name="picture" id="upload-file" style="visibility: hidden;">
-    </div>
+        <div class="upload-box">
+            <img src="@/assets/camera-icon.png" id="camera">
+            <input type="file" name="picture" id="upload-file" style="visibility: hidden;">
+        </div>
     </label>
+    <br>
     <p style="color:red"><b>사진을 정방향으로 업로드해주세요.</b></p>
-
+    <br>
     <Button msg="다음" @click="next"/>
 </template>
   
@@ -100,56 +109,68 @@
     }
 
 
-   body {
-      margin: 0px;
-      padding: 0px;
+    body {
+        margin: 0px;
+        padding: 0px;
     }
     .circle-box {
-      display: table;
-      padding: 30px;
-      padding-left:480px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 20px 90px 20px 90px;
     }
     .upload-box {
-      width: 300px;
-      height: 200px;
-      margin-left: 42%;
-      background-color: gainsboro;
+        width: 300px;
+        height: 200px;
+        background-color: gainsboro;
     }
     #camera { 
-      margin-top: 25%;
-      width: 35px;
-      height: 35px;
-      margin-left: 13px;
+        margin-top: 25%;
+        width: 35px;
+        height: 35px;
+        margin-left: 13px;
     }
     hr {
-      margin-left: 20px;
-      margin-right: 20px;
-      margin-top: 40px;
-      border: none;
-      border-top: 3px dotted gainsboro;
-      color: white;
-      background-color: white;
-      height: 1px;
-      width: 300px;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 40px;
+        border: none;
+        border-top: 3px dotted gainsboro;
+        color: white;
+        background-color: white;
+        height: 1px;
+        width: 300px;
     }
     .circle {
-      display: table-cell;
-     
-      vertical-align: center;
-      width:90px;
-      height:90px;
-      background-color: gainsboro;
-      border-radius: 50%;
+        display: table-cell;
+        vertical-align: middle;
+        width: 100px;
+        height: 100px;
+        background-color: gainsboro;
+        border-radius: 50%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
     .circle #c1 {
-      background-color: gray;
+        background-color: gray;
+        margin: 0;
     }
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-  }
+    .circle #c2,
+    .circle #c3{
+        background-color: #F3F3F3;
+        margin: 0;
+    }
+    label {
+        align-content: center;
+    }
+    #app {
+        font-family: Avenir, Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-align: center;
+        color: #2c3e50;
+    }
   </style>
   
