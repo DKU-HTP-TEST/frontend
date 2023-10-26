@@ -14,7 +14,7 @@
       </div>
 
       <div class="button">
-        <button class="go_to_h">처음으로</button>
+        <button class="go_to_h" @click="go_main">처음으로</button>
         <button class="go_to_mp" @click="go_mp">마이페이지</button>
         <button class="share">공유</button>
       </div>
@@ -40,7 +40,12 @@ export default {
                 name: "mypage",
                 // query: {order: 1}
             })
-        }
+      },
+      go_main: function() {
+        this.$router.push({
+                name: "MainAfterLogin",
+            })
+      },
     },
   }
 </script>

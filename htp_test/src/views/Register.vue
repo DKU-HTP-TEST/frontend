@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="content">
-            <div class="all_content">
+            <div class="allContent">
                 <div class="content_1">
                     <!-- <h2>이용 약관 동의</h2> -->
                     아래의 약관을 읽으신 후 동의하신다면 체크박스를 클릭하여 주십시오.<br/>
@@ -187,7 +187,7 @@ Sketch Mind는 이용자의 사전 동의 없이는 이용자의 개인정보를
         flex-direction: column;
         align-items: center;
     }
-    .all_content {
+    .allContent {
         margin-bottom: 10px;
     }
     .content_1 {
