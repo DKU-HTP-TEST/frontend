@@ -3,9 +3,9 @@
         <div class="change">
             <!-- link 바꿔야함 -->
             <br>
-            <router-link to="/findID">로그아웃</router-link>
+            <router-link to="/MainBeforeLogin">로그아웃</router-link>
             &nbsp; | &nbsp;
-            <router-link to="/findPW"> 마이페이지 &nbsp;&nbsp;&nbsp;</router-link>
+            <router-link to="/mypage"> 마이페이지 &nbsp;&nbsp;&nbsp;</router-link>
         </div>
         <header>
             <img src="../assets/orangeLogo.png" style="width:250px; height:200px;">
@@ -36,8 +36,7 @@
                 .<br/>.<br/>.
             </p>
             <div>
-                <!-- @click 바꿔야함 @click="__()"-->
-                <button type="button" class="btn btn-primary">HTP 검사 시작하기</button>
+                <button type="button" class="btn btn-primary"><router-link to="/teststart"> 검사 시작하기</router-link></button>
             </div>
         </div>
     </div>
