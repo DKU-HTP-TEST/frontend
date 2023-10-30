@@ -64,8 +64,8 @@
   import Button from "../components/Button.vue";
 
   import axios from "axios";
-  let url = "http://127.0.0.1:8000/register/";
-  let id_url = "http://127.0.0.1:8000/id_check/"
+  let url = "http://127.0.0.1:8000/member/register/";
+  let id_url = "http://127.0.0.1:8000/member/id_check/"
   
   export default {
     name: 'Register2',
