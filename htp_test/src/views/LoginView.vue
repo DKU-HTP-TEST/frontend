@@ -42,7 +42,7 @@
     import Modal from "../components/Modal.vue";
 
     import axios from "axios";
-    let url = "http://127.0.0.1:8000/login/"
+    let url = "http://127.0.0.1:8000/member/login/"
   
     export default {
         name: 'LoginView',
@@ -71,6 +71,8 @@
                     password: this.password,
                 };
                 axios.post(url, new URLSearchParams(data)).then(result => {
+                    console.log(result)
+                    localStorage.setItem('token', result.data.access)
                     this.issuc=true
                 }).catch((error) => {
                     alert("유효한 아이디와 비밀번호를 입력해 주세요.")
