@@ -31,7 +31,7 @@ import Setting from "@/components/Setting.vue";
 import MypageResult from "@/components/MypageResult.vue";
 import axios from "axios";
 
-let get_url = "http://127.0.0.1:8000/member/get_user/"
+let get_url = "http://127.0.0.1:8000/get_user/"
 
 export default {
     name: 'MypageComponent',
@@ -56,22 +56,6 @@ export default {
             token: localStorage.getItem('token')
         }
     },
-    async mounted() {
-        console.log(this.token)
-        axios.get(get_url, {
-            headers: {
-                AUTH: this.token, 
-            }
-        })
-        .then((res) => {
-            console.log("suc")
-            this.user=res.data.username
-        })
-        .catch((error) => {
-            console.log("fail")
-            console.log(error)
-        });
-    },
     methods: {
         modify_exec: function () {
             if (this.modify == false) {
@@ -91,7 +75,26 @@ export default {
             else {
                 this.res = false;
             }
+        },
+        fetchData: function() {
+            console.log(this.token)
+            axios.get(get_url, {
+                headers: {
+                    AUTH: this.token, 
+                }
+            })
+            .then((res) => {
+                console.log("suc")
+                this.user=res.data.username
+            })
+            .catch((error) => {
+                console.log("fail")
+                console.log(error)
+            });
         }
+    },
+    created() {
+        this.fetchData();
     }
 }
 </script>
