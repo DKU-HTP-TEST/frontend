@@ -25,7 +25,8 @@
     <label for="upload-file">
         <div class="upload-box">
             <img src="@/assets/camera-icon.png" id="camera">
-            <input type="file" name="picture" id="upload-file" style="visibility: hidden;">
+            <!-- <input type="file" name="picture" id="upload-file" style="visibility: hidden; "> -->
+            <input type="file" name="picture" id="upload-file" style="visibility: hidden;" @change="uploadImage" accept="image/*">
         </div>
     </label>
     <br>
@@ -38,7 +39,7 @@
   import UpperSide from '../components/UpperSide.vue';
   import Button from "../components/Button.vue";
   import { useRoute } from 'vue-router';
-
+  import axios from 'axios';
 
   const route = useRoute;
   
@@ -81,8 +82,38 @@
                 query: {order: this.order}
           });
         }
+      },
+
+      uploadImage: function(event) {
+        const formData = new FormData();
+        formData.append('image', event.target.files[0]);
+
+        const url = this.determineURL();
+
+        axios.post(url, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        })
+        .then(response => {
+        
+        })
+        .catch(error => {
+        // 에러를 처리하는 로직
+        });
+      },
+  
+      determineURL() {
+        if (this.order === 2) {
+          return 'http://127.0.0.1:8000/analyze_img_tree/';
+        } else if (this.order === 3) {
+          return 'http://127.0.0.1:8000/analyze_img_person/';
+        }
+        else{
+          return 'http://127.0.0.1:8000/analyze_img_house/'
+        }
       }
-    }
+    } 
   }
   </script>
   
