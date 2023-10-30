@@ -29,6 +29,9 @@
 <script>
 import Setting from "@/components/Setting.vue";
 import MypageResult from "@/components/MypageResult.vue";
+import axios from "axios";
+
+let get_url = "http://127.0.0.1:8000/get_user/"
 
 export default {
     name: 'MypageComponent',
@@ -52,6 +55,19 @@ export default {
             human_res: "전략가는 실제로 활용할 수 있는 아이디어만이 가치가 있다고 생각하며, 단순히 새로운 아이디어를 내는 데 그치는 것이 아니라 아이디어를 이용해 성공을 쟁취하고자 합니다. 이들은 업무에 자신의 모든 통찰력과 논리력과 의지를 쏟아부으며, 불필요한 규칙을 설정하거나 쓸모없는 비판을 제기하면서 자신을 방해하는 사람에게는 가차 없는 모습을 보입니다"
         }
     },
+    // mounted() {
+    //     axios.get(get_url, {
+    //         headers: {
+    //             "AUTH": localStorage.getItem('token'),
+    //         },
+    //     })
+    //     .then((res) => {
+    //         this.user=res.data.username
+    //     })
+    //     .catch((res) => {
+    //         console.log("fail")
+    //     });
+    // },
     methods: {
         modify_exec: function () {
             if (this.modify == false) {

@@ -71,6 +71,8 @@
                     password: this.password,
                 };
                 axios.post(url, new URLSearchParams(data)).then(result => {
+                    console.log(result)
+                    localStorage.setItem('token', result.data.access)
                     this.issuc=true
                 }).catch((error) => {
                     alert("유효한 아이디와 비밀번호를 입력해 주세요.")
