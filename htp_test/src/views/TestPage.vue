@@ -105,12 +105,12 @@
   
       determineURL() {
         if (this.order === 2) {
-          return 'http://127.0.0.1:8000/analyze_img_tree/';
+          return 'http://127.0.0.1:8000/htp_test/analyze_img_tree/';
         } else if (this.order === 3) {
-          return 'http://127.0.0.1:8000/analyze_img_person/';
+          return 'http://127.0.0.1:8000/htp_test/analyze_img_person/';
         }
         else{
-          return 'http://127.0.0.1:8000/analyze_img_house/'
+          return 'http://127.0.0.1:8000/htp_test/analyze_img_house/'
         }
       }
     } 
