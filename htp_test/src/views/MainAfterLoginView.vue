@@ -3,7 +3,7 @@
         <div class="change">
             <!-- link 바꿔야함 -->
             <br>
-            <router-link to="/MainBeforeLogin">로그아웃</router-link>
+            <router-link to="/MainBeforeLogin" @click="logout()">로그아웃</router-link>
             &nbsp; | &nbsp;
             <router-link to="/mypage"> 마이페이지 &nbsp;&nbsp;&nbsp;</router-link>
         </div>
@@ -43,6 +43,16 @@
 </template>
 
 <script>
+import { VueElement } from 'vue';
+
+    export default {
+        methods: {
+            logout() {
+                localStorage.removeItem("token")
+                window.location.replace("http://localhost:8080/MainBeforeLogin")
+            }
+        },
+    }
 
 </script>
 
