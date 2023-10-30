@@ -31,7 +31,7 @@ import Setting from "@/components/Setting.vue";
 import MypageResult from "@/components/MypageResult.vue";
 import axios from "axios";
 
-let get_url = "http://127.0.0.1:8000/get_user/"
+let get_url = "http://127.0.0.1:8000/member/get_user/"
 
 export default {
     name: 'MypageComponent',
