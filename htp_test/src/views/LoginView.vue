@@ -42,7 +42,7 @@
     import Modal from "../components/Modal.vue";
 
     import axios from "axios";
-    let url = "http://127.0.0.1:8000/login/"
+    let url = "http://127.0.0.1:8000/member/login/"
   
     export default {
         name: 'LoginView',
