@@ -143,6 +143,7 @@ export default {
         text-align: left;
         margin-left: 20%;
         padding: 5px 0px;
+        font-size: 26px;
     }
 
     .more {

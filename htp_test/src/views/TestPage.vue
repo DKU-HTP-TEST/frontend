@@ -24,8 +24,8 @@
     <h3>{{image[order-1].name}} 그려주세요</h3>
     <label for="upload-file">
         <div class="upload-box">
-            <img src="@/assets/camera-icon.png" id="camera">
-            <!-- <input type="file" name="picture" id="upload-file" style="visibility: hidden; "> -->
+            <img v-if="imageUrl" :src="imageUrl" style="width:100%; height:100%;" id="uploaded-image">
+            <img v-else src="@/assets/camera-icon.png" id="camera">
             <input type="file" name="picture" id="upload-file" style="visibility: hidden;" @change="uploadImage" accept="image/*">
         </div>
     </label>
@@ -65,30 +65,39 @@
             name: "사람을",
             img: require("../assets/man-icon.png")
           }
-        ]
+        ],
+
+        imageUrl: null 
       }
     },
     methods: {
       next: function () {
-        if (this.order == 3) {
-          this.$router.push({
-            name: "Complete"
-          })
-        }
-        else {
-          this.order = Number(this.order) + 1;
-          this.$router.push({
-                name: "TestPage",
-                query: {order: this.order}
-          });
+
+        if (!this.imageUrl) {
+          window.alert('이미지를 업로드해주세요');  //이미지 업로드가 안되면 모달 띄우기
+        } else {
+          this.imageUrl = null;  // 업로드한 이미지 초기화
+
+          if (this.order == 3) {
+            this.$router.push({
+              name: "Complete"
+            });
+          } else {
+            this.order = Number(this.order) + 1;
+            this.$router.push({
+              name: "TestPage",
+              query: { order: this.order }
+            });
+          }
         }
       },
 
       uploadImage: function(event) {
-        const formData = new FormData();
-        formData.append('image', event.target.files[0]);
 
-        const url = this.determineURL();
+        const formData = new FormData();  //객체 생성
+        formData.append('image', event.target.files[0]);  // image로 파일 첨부
+
+        const url = this.determineURL(); // 업로드할 URL 결정
 
         axios.post(url, formData, {
           headers: {
@@ -96,19 +105,19 @@
           }
         })
         .then(response => {
-        
+          this.imageUrl = URL.createObjectURL(event.target.files[0]);
         })
         .catch(error => {
-        // 에러를 처리하는 로직
+          alert('error');
         });
       },
-  
-      determineURL() {
+    
+      determineURL() {  //업로드할 URL 결정
         if (this.order === 2) {
           return 'http://127.0.0.1:8000/htp_test/analyze_img_tree/';
         } else if (this.order === 3) {
           return 'http://127.0.0.1:8000/htp_test/analyze_img_person/';
-        }
+        } 
         else{
           return 'http://127.0.0.1:8000/htp_test/analyze_img_house/'
         }
@@ -154,13 +163,15 @@
         width: 300px;
         height: 200px;
         background-color: gainsboro;
+        border: 1px solid gainsboro;
     }
+
     #camera { 
         margin-top: 25%;
         width: 35px;
         height: 35px;
-        margin-left: 13px;
     }
+    
     hr {
         margin-left: 20px;
         margin-right: 20px;

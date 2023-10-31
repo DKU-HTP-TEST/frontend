@@ -61,16 +61,6 @@
             display: inline-block;
             vertical-align: middle;
 
-            /*
-            position: absolute;
-            display: block;
-            justify-content: center; /* 가로 가운데 정렬 
-            top: 60%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            */
-            /* margin-left: 660px;
-            margin-right: 660px;        */
     }
 
     .grey_box img{
