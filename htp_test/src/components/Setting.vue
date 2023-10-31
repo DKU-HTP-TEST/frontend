@@ -21,7 +21,7 @@
         <p>{{ password }}</p>
     </div>
     <div class="input-box" v-if="this.isModify">
-        <input typ="text" name="password">
+        <input type="text" name="password" v-model="password">
     </div>
 
     <p id="attr">이름</p>
@@ -34,7 +34,7 @@
         <p>{{ email }}</p>
     </div>
     <div class="input-box" v-if="this.isModify">
-        <input type="text" name="email">
+        <input type="text" name="email" v-model="email">
     </div>
 
     <div v-if="this.isModify" class="btn_area">
@@ -47,20 +47,28 @@
 </template>
   
 <script>
-    import Button from './Button.vue'
+import axios from 'axios';
+import Button from './Button.vue'
+
+let get_url = "http://127.0.0.1:8000/get_user/"
 
     export default {
         name: 'UpperSide',
+        props: {
+            username: String,
+            user_id: String,
+            useremail: String
+        },
         components: {
             Button,
         },
         data() {
             return {
                 isModify : false,
-                id: "hyunji123",
-                password: "****",
-                name: "Jang",
-                email: "jang@gmail.com",
+                password: "***",
+                name: this.username,
+                id: this.user_id,
+                email: this.useremail,
             }
         },
         methods: {
@@ -73,8 +81,8 @@
             },
             cancel: function () {
                 this.isModify = false;
-            }
-        }
+            },
+        },
     }
   
 </script>
