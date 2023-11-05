@@ -106,20 +106,24 @@ export default {
       c1: false,
       c2: false,
       c3: false,
-      all: false,
+      // all: false,
     }
   },
-  watch: {
-    all() {
-      if (this.all == true) {
-        this.c1 = true
-        this.c2 = true
-        this.c3 = true
-      }
-      else {
-        this.c1 = false
-        this.c2 = false
-        this.c3 = false
+  computed: {
+    all: {
+      get: function () {
+        return this.c1 && this.c2 && this.c3;
+      },
+      set: function (e) {
+        if (e == true) {
+          this.c1 = true
+          this.c2 = true
+          this.c3 = true
+        } else {
+          this.c1 = false
+          this.c2 = false
+          this.c3 = false
+        }
       }
     }
   },
