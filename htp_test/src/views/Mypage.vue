@@ -14,7 +14,7 @@
             <h2 class="more">&gt;</h2>
         </div>
         <hr>
-        <p class="withdrawal">회원탈퇴</p>
+        <p class="withdrawal" @click="withdrawUser">회원탈퇴</p>
     </div>
 
     <div class="page" style="float: left;">
@@ -90,7 +90,21 @@ export default {
                 console.log("fail")
                 console.log(error)
             });
-        }
+        },
+        withdrawUser() {
+            axios.delete("http://127.0.0.1:8000/member/delete/"+this.user_id+"/", {
+                headers: {
+                    Authorization: this.token,
+                }
+            })
+            .then(Response => {
+                console.log('회원탈퇴 성공');
+                window.location.replace("http://localhost:8080/MainBeforeLogin")
+            })
+            .catch(error => {
+                console.log('회원 탈퇴 실패', error);
+            });
+        },
     },
     created() {
         this.fetchData();
