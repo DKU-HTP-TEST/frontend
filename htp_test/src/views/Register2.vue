@@ -28,12 +28,12 @@
             <div class="RegisPW">
                 <div>
                     <p>비밀번호<span style="color: red">*</span></p>
-                    <input type="text" v-model="password" placeholder=""/>
+                    <input type="password" v-model="password" placeholder=""/>
                 </div>
                 <br>
                 <div>
                     <p>비밀번호 확인</p>
-                    <input type="text" v-model="password_check" placeholder=""/>
+                    <input type="password" v-model="password_check" placeholder=""/>
                     <p v-if="ispassword" style="color: red">비밀번호가 일치하지 않습니다.</p>
                 </div>
             </div>
