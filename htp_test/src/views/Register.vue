@@ -156,7 +156,8 @@ export default {
     margin-right: 20px;
     margin-top: 40px;
     border: none;
-    border-top: 3px dotted gainsboro;
+    /* border-top: 3px dotted gainsboro; */
+    border-top: 3px dotted black;
     color: white;
     background-color: white;
     height: 1px;
@@ -167,19 +168,18 @@ export default {
       vertical-align: middle;
       width: 100px;
       height: 100px;
-      background-color: gainsboro;
+      /* background-color: gainsboro; */
       border-radius: 50%;
       text-align: center;
       display: flex;
       flex-direction: column;
       justify-content: center;
   }
-  .circle #c1 {
-    background-color: gray;
+  #c1 {
+    background-color: gainsboro;
     margin: 0;
   }
-  .circle #c2,
-  .circle #c3{
+  #c2, #c3{
     background-color: #F3F3F3;
     margin: 0;
   }

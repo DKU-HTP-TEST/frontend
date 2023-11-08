@@ -5,17 +5,20 @@
     </div>
 
     <div class="circle-box">
-        <div class="circle" id="c1">
+        <!-- <div :class="['circle', { 'c1': order == 1, 'c2': order != 1, 'c3': order != 1 }]"> -->
+        <div :class="['circle', { 'c1': order == 1}]">
             <b>1</b>
             <p>약관 동의</p>
         </div>
         <hr/>
-        <div class="circle" id="c2">
+        <!-- <div :class="['circle', { 'c2': order == 2, 'c1': order != 2, 'c3': order != 2 }]"> -->
+        <div :class="['circle', { 'c2': order == 2}]">
             <b>2</b>
             <p>회원정보<br>입력</p>
         </div>
         <hr/>
-        <div class="circle" id="c3">
+        <!-- <div :class="['circle', { 'c3': order == 3, 'c1': order != 3, 'c2': order != 3 }]"> -->
+        <div :class="['circle', { 'c3': order == 3}]">
             <b>3</b>
             <p>회원가입<br>완료</p>
         </div>
@@ -203,7 +206,6 @@
         background-color: gainsboro;
         border: 1px solid gainsboro;
     }
-
     #camera { 
         margin-top: 25%;
         width: 35px;
@@ -226,20 +228,23 @@
         vertical-align: middle;
         width: 100px;
         height: 100px;
-        background-color: gainsboro;
+        background-color: #F3F3F3;
         border-radius: 50%;
         text-align: center;
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
-    .circle #c1 {
-        background-color: gray;
+    .c1 {
+        background-color: gainsboro;
         margin: 0;
     }
-    .circle #c2,
-    .circle #c3{
-        background-color: #F3F3F3;
+    .c2 {
+        background-color: gainsboro;
+        margin: 0;
+    }
+    .c3 {
+        background-color: gainsboro;
         margin: 0;
     }
     label {

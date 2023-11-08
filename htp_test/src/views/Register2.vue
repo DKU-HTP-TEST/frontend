@@ -28,12 +28,12 @@
             <div class="RegisPW">
                 <div>
                     <p>비밀번호<span style="color: red">*</span></p>
-                    <input type="text" v-model="password" placeholder=""/>
+                    <input type="password" v-model="password" placeholder=""/>
                 </div>
                 <br>
                 <div>
                     <p>비밀번호 확인</p>
-                    <input type="text" v-model="password_check" placeholder=""/>
+                    <input type="password" v-model="password_check" placeholder=""/>
                     <p v-if="ispassword" style="color: red">비밀번호가 일치하지 않습니다.</p>
                 </div>
             </div>
@@ -159,37 +159,31 @@
         margin-right: 20px;
         margin-top: 40px;
         border: none;
-        border-top: 3px dotted gainsboro;
+        /* border-top: 3px dotted gainsboro; */
+        border-top: 3px dotted black;
         color: white;
         background-color: white;
         height: 1px;
         width: 300px;
     }
     .circle {
-        /* display: table-cell;
-        vertical-align: center;
-        width:100px;
-        height:auto;
-        background-color: gainsboro;
-        border-radius: 50%; */
         display: table-cell;
         vertical-align: middle;
         width: 100px;
         height: 100px;
-        background-color: gainsboro;
+        /* background-color: gainsboro; */
         border-radius: 50%;
         text-align: center;
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
-    .circle #c1 {
-        background-color: gray;
+    #c1, #c3 {
+        background-color: #F3F3F3;
         margin: 0;
     }
-    .circle #c2,
-    .circle #c3{
-        background-color: #F3F3F3;
+    #c2{
+        background-color: gainsboro;
         margin: 0;
     }
     .Register_input  {
