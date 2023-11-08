@@ -21,17 +21,14 @@
                 <h2>검사 결과</h2>
                 <h3>🏠  집</h3>
                 <div class="house">
-                    <!-- <p class="house_res">{{ house_res }}</p> -->
                     <p class="house_res">{{ selectedHouseResult }}</p>
                 </div>
                 <h3>🌳  나무</h3>
                 <div class="tree">
-                    <!-- <p class="tree_res">{{ tree_res }}</p> -->
                     <p class="tree_res">{{ selectedTreeResult }}</p>
                 </div>
                 <h3>🙂  사람</h3>
                 <div class="human">
-                    <!-- <p class="human_res">{{ human_res }}</p> -->
                     <p class="human_res">{{ selectedPersonResult }}</p>
                 </div>
             </div>
@@ -57,17 +54,21 @@ export default {
         return{
             datelist: [], // 새로운 데이터를 저장할 배열
             isDeleteButtonVisible: false, // 이미지 클릭 상태
-            selectedDate: null,
+            
             selectedHouseResult: '',
             selectedTreeResult: '',
             selectedPersonResult: '',
+
             token:localStorage.getItem('token'),
+            user_id: '',
+            selectedDate: null,
         };
         
     },
 
-    methods: { 
+    methods: {
         fetchData(){
+            console.log(this.token)
             axios.get(date_url, {
                 headers: {
                     Authorization: this.token,
@@ -93,17 +94,19 @@ export default {
                 },
                 params: {
                     user_id: this.user_id,
-                    date: item.date
+                    date: item
                 }
             })
             .then((res) => {
                 this.selectedHouseResult = res.data.home;
                 this.selectedTreeResult = res.data.tree;
                 this.selectedPersonResult = res.data.person;
+                
             })
             .catch((error) => {
                 console.log(error.response);
             });
+            
         },
 
         // 이미지 클릭 시 삭제 버튼 표시&숨김
@@ -112,19 +115,23 @@ export default {
         },
 
         // 삭제 버튼 클릭 시 아이템 삭제
-        deleteItem(date) {
+        deleteItem(item) {
             axios.delete(delete_url, {
                 headers: {
                     Authorization: this.token,
                 },
                 params: {
                     user_id: this.user_id,
-                    del_date: date
+                    del_date: item
                 }
             })
             .then((response)=> {
                 alert("삭제되었습니다.");
                 this.fetchData();
+                this.selectedHouseResult = '';
+                this.selectedTreeResult = '';
+                this.selectedPersonResult = '';
+                this.isDeleteButtonVisible = !this.isDeleteButtonVisible;
             })
             .catch((error) => {
                 console.error(error.response);
