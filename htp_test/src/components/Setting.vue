@@ -11,39 +11,37 @@
     <br><br><br><br><br><br><br>
 
     <div class="content">
-    <p id="attr">아이디</p>
-    <div class="box">
-        <p>{{ id }}</p>
-    </div>
+        <p id="attr">아이디</p>
+        <div class="box">
+            <p>{{ id }}</p>
+        </div>
 
-    <p id="attr">비밀번호</p>
-    <div class="box" v-if="!this.isModify">
-        <p>{{ password }}</p>
-    </div>
-    <div class="input-box" v-if="this.isModify">
-        <input type="text" name="password" v-model="password">
-    </div>
+        <p id="attr">비밀번호</p>
+        <div class="box" v-if="!this.isModify">
+            <p>{{ password }}</p>
+        </div>
+        <div class="input-box" v-if="this.isModify">
+            <input type="text" name="password" v-model="password">
+        </div>
 
-    <p id="attr">이름</p>
-    <div class="box">
-        <p>{{ name }}</p>
-    </div>
+        <p id="attr">이름</p>
+        <div class="box">
+            <p>{{ name }}</p>
+        </div>
 
-    <p id="attr">e-mail</p>
-    <div class="box" v-if="!this.isModify">
-        <p>{{ email }}</p>
-    </div>
-    <div class="input-box" v-if="this.isModify">
-        <input type="text" name="email" v-model="email">
-    </div>
+        <p id="attr">e-mail</p>
+        <div class="box" v-if="!this.isModify">
+            <p>{{ email }}</p>
+        </div>
+        <div class="input-box" v-if="this.isModify">
+            <input type="text" name="email" v-model="email">
+        </div>
 
-    <div v-if="this.isModify" class="btn_area">
-        <button @click="save" id="save">저장</button>
-        <button @click="cancel" id="cancel">취소</button>
+        <div v-if="this.isModify" class="btn_area">
+            <button @click="save" id="save">저장</button>
+            <button @click="cancel" id="cancel">취소</button>
+        </div>
     </div>
-    </div>
-
-    
 </template>
   
 <script>
@@ -76,7 +74,21 @@ let get_url = "http://127.0.0.1:8000/get_user/"
                 this.isModify = true;
 
             },
-            save: function () {
+            save: function() {
+                axios.post("http://127.0.0.1:8000/member/update_user/"+this.user_id+"/", {
+                    headers: {
+                        Authorization: this.token,
+                        password: this.password,
+                        email: this.useremail,
+                    }
+                }).then(Response => {
+                    console.log('수정 성공');
+                    console.log(this.email);
+                    console.log(this.password);
+                })
+                .catch(error => {
+                    console.log('수정 실패', error);
+                });
                 this.isModify = false;
             },
             cancel: function () {
