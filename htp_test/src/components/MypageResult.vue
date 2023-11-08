@@ -7,47 +7,44 @@
         </div>
         <hr>
         <div class="container">
-            
             <div class = "menu">
-                <!-- <div class="list">
-                    <div class="date">23.07.22(금)<span class="more">&gt;</span>
-                        <button class="delete-button" @click="deleteItem(index)" v-if="isDeleteButtonVisible">삭제</button>
-                    </div>
-                    <hr>
-                </div>
-                <div class="list">
-                    <div class="date">23.07.22(금)<span class="more">&gt;</span>
-                    <button class="delete-button" @click="deleteItem(index)" v-if="isDeleteButtonVisible">삭제</button>
-                    </div>
-                    <hr>
-                </div> -->
                 <div class="list" :key="index" v-for="(item, index) in datelist">
-                    <div class="date">{{ item.date }}<span class="more">&gt;</span>
-                    <button class="delete-button" @click="deleteItem(index)" v-if="isDeleteButtonVisible">X</button>
+                    <div class="date" @click="fetchResults(item)">{{ item.date }}<span class="more">&gt;</span>
+                    <button class="delete-button" @click="deleteItem(item.date)" v-if="isDeleteButtonVisible">X</button>
                     </div>
                     <hr>
                 </div>
             </div>
 
             <div class="results">
+            <!-- <div class="results" v-if="selectedDate">     -->
                 <h2>검사 결과</h2>
-                <h3>●  집</h3>
+                <h3>🏠  집</h3>
                 <div class="house">
-                    <p class="house_res">{{ house_res }}</p>
+                    <!-- <p class="house_res">{{ house_res }}</p> -->
+                    <p class="house_res">{{ selectedHouseResult }}</p>
                 </div>
-                <h3>●  나무</h3>
+                <h3>🌳  나무</h3>
                 <div class="tree">
-                    <p class="tree_res">{{ tree_res }}</p>
+                    <!-- <p class="tree_res">{{ tree_res }}</p> -->
+                    <p class="tree_res">{{ selectedTreeResult }}</p>
                 </div>
-                <h3>●  사람</h3>
+                <h3>🙂  사람</h3>
                 <div class="human">
-                    <p class="human_res">{{ human_res }}</p>
+                    <!-- <p class="human_res">{{ human_res }}</p> -->
+                    <p class="human_res">{{ selectedPersonResult }}</p>
                 </div>
             </div>
         </div>
 </template>
 
 <script>
+import axios from 'axios';
+let get_url = "http://127.0.0.1:8000/member/get_user/";
+let result_url = "http://127.0.0.1:8000/htp_test/result/";
+let delete_url = "http://127.0.0.1:8000/htp_test/del_result/";
+let date_url = "http://127.0.0.1:8000/htp_test/get_dates/"
+
 export default {
     name: 'MypageResult',
     props: {
@@ -58,37 +55,86 @@ export default {
 
     data() {
         return{
-            datelist: [{"date":"2020-02-02  "},{"date":"2021-01-01  " }, {"date":"2022-01-01  " }, {"date":"2023-01-01  " }], // 새로운 데이터를 저장할 배열
+            datelist: [], // 새로운 데이터를 저장할 배열
             isDeleteButtonVisible: false, // 이미지 클릭 상태
+            selectedDate: null,
+            selectedHouseResult: '',
+            selectedTreeResult: '',
+            selectedPersonResult: '',
+            token:localStorage.getItem('token'),
         };
         
     },
 
     methods: { 
-    
-        addData() { /// 데이터를 추가하는 메서드 추가
-        const currentDate = new Date().toLocaleDateString();
-        const newData = { date: 'currentDate' };
-        this.datelist.push(newData);
+        fetchData(){
+            axios.get(date_url, {
+                headers: {
+                    Authorization: this.token,
+                },
+                params: {
+                    user_id: this.user_id
+                }
+            })
+            .then((response)=>{
+                this.datelist = response.data.dates
+                // this.datelist.push(response.data.created_date);
+            })
+            .catch((error) => {
+                console.log(error.response);
+            });
+        },
+
+        fetchResults(item) {
+            axios.get(result_url, {
+                headers: {
+                    Authorization: this.token,
+                },
+                params: {
+                    user_id: this.user_id,
+                    date: item.date
+                }
+            })
+            .then((res) => {
+                this.selectedHouseResult = res.data.home;
+                this.selectedTreeResult = res.data.tree;
+                this.selectedPersonResult = res.data.person;
+            })
+            .catch((error) => {
+                console.log(error.response);
+            });
         },
 
         // 이미지 클릭 시 삭제 버튼 표시&숨김
         showDeleteButton() {
-            // const deleteButtons = document.querySelectorAll(".delete-button");
-            // deleteButtons.forEach((button) => {
-            //     button.style.display = "inline-block";
-            // });
             this.isDeleteButtonVisible = !this.isDeleteButtonVisible;
         },
 
         // 삭제 버튼 클릭 시 아이템 삭제
-        deleteItem(index) {
-            this.datelist.splice(index, 1); // 해당 아이템을 삭제
+        deleteItem(date) {
+            axios.delete(delete_url, {
+                headers: {
+                    Authorization: this.token,
+                },
+                params: {
+                    user_id: this.user_id,
+                    del_date: date
+                }
+            })
+            .then((response)=> {
+                alert("삭제되었습니다.");
+                this.fetchData();
+            })
+            .catch((error) => {
+                console.error(error.response);
+            });
         },
-
-  },
-      
+    },
+    mounted() {
+        this.fetchData();
+    }
 }
+
 </script>
 
 <style scoped>
@@ -159,7 +205,7 @@ export default {
     .results > h3 {
         text-align: left;
         margin-left: 30px;
-        margin-top: 20px;
+        margin-top: 25px;
         font-size: x-large;
     }
     
@@ -189,6 +235,7 @@ export default {
     }
     .date{
         margin-left: 8px;
+        color: black;
     }
 
     .more {
