@@ -9,8 +9,8 @@
         <div class="container">
             <div class = "menu">
                 <div class="list" :key="index" v-for="(item, index) in datelist">
-                    <div class="date" @click="fetchResults(item)">{{ item.date }}<span class="more">&gt;</span>
-                    <button class="delete-button" @click="deleteItem(item.date)" v-if="isDeleteButtonVisible">X</button>
+                    <div class="date" @click="fetchResults(item)">{{ item }}<span class="more">&gt;</span>
+                    <button class="delete-button" @click="deleteItem(item)" v-if="isDeleteButtonVisible">X</button>
                     </div>
                     <hr>
                 </div>
@@ -78,6 +78,7 @@ export default {
             })
             .then((response)=>{
                 this.datelist = response.data.dates
+                console.log(this.datelist[0])
                 // this.datelist.push(response.data.created_date);
             })
             .catch((error) => {
