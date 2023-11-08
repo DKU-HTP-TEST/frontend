@@ -67,6 +67,7 @@ let get_url = "http://127.0.0.1:8000/get_user/"
                 name: this.username,
                 id: this.user_id,
                 email: this.useremail,
+                token: localStorage.getItem('token'),
             }
         },
         methods: {
@@ -75,11 +76,16 @@ let get_url = "http://127.0.0.1:8000/get_user/"
 
             },
             save: function() {
-                axios.post("http://127.0.0.1:8000/member/update_user/"+this.user_id+"/", {
+                var data = {
+                    useremail: this.email,
+                    password: this.password,
+                }
+                axios.post("http://127.0.0.1:8000/member/update_user/", 
+                new URLSearchParams(data),
+                {
                     headers: {
                         Authorization: this.token,
-                        password: this.password,
-                        email: this.useremail,
+
                     }
                 }).then(Response => {
                     console.log('수정 성공');

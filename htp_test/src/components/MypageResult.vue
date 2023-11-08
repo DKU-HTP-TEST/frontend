@@ -79,6 +79,8 @@ export default {
             })
             .then((response)=>{
                 this.datelist = response.data.dates
+                console.log(this.datelist[0])
+                // this.datelist.push(response.data.created_date);
             })
             .catch((error) => {
                 console.log(error.response);
