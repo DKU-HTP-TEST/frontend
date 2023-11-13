@@ -3,13 +3,13 @@
     <div class="block">
       <div class="container1">
         <div class="row">
-            <TestResult msg = 'HOUSE 검사 결과' msg2 = 'asdfasdfasdf'/>
+            <TestResult msg = 'HOUSE 검사 결과' :msg2 = "TestResultHouse"/>
         </div>
         <div class="row">
-            <TestResult msg = 'TREE 검사 결과' msg2 = 'asdfasdfasdf'/>
+            <TestResult msg = 'TREE 검사 결과' :msg2 = "TestResultTree"/>
         </div>
         <div class="row">
-            <TestResult msg = 'HUMAN 검사 결과' msg2 = 'asdfasdfasdf'/>
+            <TestResult msg = 'HUMAN 검사 결과' :msg2 = "TestResultPerson"/>
         </div>
       </div>
 
@@ -27,6 +27,9 @@ import UpperSide from '../components/UpperSide.vue';
 import TestResult from '../components/TestResult.vue';
 import Button from '../components/Button.vue';
 
+let test_res_url = "http://127.0.0.1:8000/htp_test/test_result/";
+import axios from 'axios';
+
 export default {
     name: 'Result',
     components: {
@@ -34,6 +37,15 @@ export default {
       TestResult,
       Button
     },
+    data() {
+      return {
+        TestResultHouse: '집입니다',
+        TestResultTree: '나무입니다',
+        TestResultPerson: '사람입니다',
+        token: localStorage.getItem('token'),
+      }
+    },
+
     methods: {
       go_mp: function() {
         this.$router.push({
@@ -46,7 +58,21 @@ export default {
                 name: "MainAfterLogin",
             })
       },
+      fetchTestResults(){
+        axios.get(test_res_url)
+        .then((res) =>{
+          this.TestResultHouse = res.data.home;
+          this.TestResultTree = res.data.tree;
+          this.TestResultPerson = res.data.person;
+        })
+        .catch((error) => {
+          console.log(error.response);
+        });
+      },
     },
+    created() {
+      this.fetchTestResults();
+    }
   }
 </script>
 
