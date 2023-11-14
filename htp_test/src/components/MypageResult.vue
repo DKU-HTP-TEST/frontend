@@ -40,7 +40,7 @@ import axios from 'axios';
 let get_url = "http://127.0.0.1:8000/member/get_user/";
 let result_url = "http://127.0.0.1:8000/htp_test/result/";
 let delete_url = "http://127.0.0.1:8000/htp_test/del_result/";
-let date_url = "http://127.0.0.1:8000/htp_test/get_dates/"
+let date_url = "http://127.0.0.1:8000/htp_test/get_dates/";
 
 export default {
     name: 'MypageResult',

@@ -8,19 +8,19 @@
         <!-- <div :class="['circle', { 'c1': order == 1, 'c2': order != 1, 'c3': order != 1 }]"> -->
         <div :class="['circle', { 'c1': order == 1}]">
             <b>1</b>
-            <p>약관 동의</p>
+            <p>집</p>
         </div>
         <hr/>
         <!-- <div :class="['circle', { 'c2': order == 2, 'c1': order != 2, 'c3': order != 2 }]"> -->
         <div :class="['circle', { 'c2': order == 2}]">
             <b>2</b>
-            <p>회원정보<br>입력</p>
+            <p>나무</p>
         </div>
         <hr/>
         <!-- <div :class="['circle', { 'c3': order == 3, 'c1': order != 3, 'c2': order != 3 }]"> -->
         <div :class="['circle', { 'c3': order == 3}]">
             <b>3</b>
-            <p>회원가입<br>완료</p>
+            <p>사람</p>
         </div>
     </div>
 
@@ -71,8 +71,14 @@
             img: require("../assets/man-icon.png")
           }
         ],
+<<<<<<< HEAD
         token: localStorage.getItem('token'),
         imageUrl: null,
+=======
+
+        imageUrl: null, 
+        token:localStorage.getItem('token'),
+>>>>>>> ee9a88f3f63d36f8037a85b0a880aed517d5a3dc
       }
     },
     methods: {
@@ -81,6 +87,46 @@
           window.alert('이미지를 업로드해주세요');  //이미지 업로드가 안되면 모달 띄우기
         } else {
           this.imageUrl = null;  // 업로드한 이미지 초기화
+<<<<<<< HEAD
+=======
+
+          // /* 그림 보내서 결과 가져오기 */
+          // switch(this.order) {
+          //   case 1:
+          //     let house_url = url + "analyze_img_house/"
+          //     var house_img
+          //     axios.post(house_url, new URLSearchParams(house_img))
+          //     .then((response) => {
+                
+          //       console.log(response)
+          //     })
+          //     .catch((error) => {
+          //       console.log(error)
+          //     })
+          //     break
+          //   case 2:
+          //     let tree_url = url + "analyze_img_tree/"
+          //     var tree_img
+          //     axios.post(tree_url, new URLSearchParams(tree_img))
+          //     .then((response) => {
+          //       console.log(response)
+          //     })
+          //     .catch((error) => {
+          //       console.log(error)
+          //     })
+          //   case 3:
+          //     let person_url = url + "analyze_img_person/"
+          //     var person_img
+          //     axios.post(person_url, new URLSearchParams(person_img))
+          //     .then((response) => {
+          //       console.log(response)
+          //     })
+          //     .catch((error) => {
+          //       console.log(error)
+          //     })
+          // }
+
+>>>>>>> ee9a88f3f63d36f8037a85b0a880aed517d5a3dc
           if (this.order == 3) {
             this.$router.push({
               name: "Complete"
@@ -104,9 +150,15 @@
 
         axios.post(url, formData, {
           headers: {
+<<<<<<< HEAD
             'Content-Type': 'multipart/form-data',
             Authorization: this.token,
           }
+=======
+            Authorization: this.token,
+            'Content-Type': 'multipart/form-data'
+          },
+>>>>>>> ee9a88f3f63d36f8037a85b0a880aed517d5a3dc
         })
         .then(response => {
           this.imageUrl = URL.createObjectURL(event.target.files[0]);
@@ -162,6 +214,8 @@
         justify-content: space-between;
         align-items: center;
         margin: 20px 90px 20px 90px;
+        font-size: 20px;
+        font-weight: 500;
     }
     .upload-box {
         width: 300px;
@@ -180,7 +234,7 @@
         margin-right: 20px;
         margin-top: 40px;
         border: none;
-        border-top: 3px dotted gainsboro;
+        border-top: 3px dotted grey;
         color: white;
         background-color: white;
         height: 1px;
