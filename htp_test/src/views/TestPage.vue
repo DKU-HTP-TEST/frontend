@@ -122,7 +122,7 @@
 
           if (this.order == 3) {
             this.$router.push({
-              name: "Complete"
+              name: "Loading"
             });
           } else {
             this.order = Number(this.order) + 1;
