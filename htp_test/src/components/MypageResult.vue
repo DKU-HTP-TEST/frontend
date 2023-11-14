@@ -9,7 +9,7 @@
         <div class="container">
             <div class = "menu">
                 <div class="list" :key="index" v-for="(item, index) in datelist">
-                    <div class="date" @click="fetchResults(item)">{{ item }}<span class="more">&gt;</span>
+                    <div class="date" @click="fetchResults(item, idlist[index])">{{ item }}<span class="more">&gt;</span>
                     <button class="delete-button" @click="deleteItem(item)" v-if="isDeleteButtonVisible">X</button>
                     </div>
                     <hr>
@@ -53,6 +53,7 @@ export default {
     data() {
         return{
             datelist: [], // 새로운 데이터를 저장할 배열
+            idlist: [],
             isDeleteButtonVisible: false, // 이미지 클릭 상태
             
             selectedHouseResult: '',
@@ -79,6 +80,7 @@ export default {
             })
             .then((response)=>{
                 this.datelist = response.data.dates
+                this.idlist = response.data.id
                 console.log(this.datelist[0])
                 // this.datelist.push(response.data.created_date);
             })
@@ -87,14 +89,15 @@ export default {
             });
         },
 
-        fetchResults(item) {
+        fetchResults(item, id) {
             axios.get(result_url, {
                 headers: {
                     Authorization: this.token,
                 },
                 params: {
                     user_id: this.user_id,
-                    date: item
+                    date: item,
+                    id: id,
                 }
             })
             .then((res) => {
