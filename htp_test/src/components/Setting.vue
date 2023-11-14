@@ -88,6 +88,7 @@ let get_url = "http://127.0.0.1:8000/get_user/"
 
                     }
                 }).then(Response => {
+                    alert('성공적으로 수정되었습니다.')
                     console.log('수정 성공');
                     console.log(this.email);
                     console.log(this.password);
