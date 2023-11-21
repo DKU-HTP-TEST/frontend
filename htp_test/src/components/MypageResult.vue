@@ -81,7 +81,7 @@ export default {
             .then((response)=>{
                 this.datelist = response.data.dates
                 this.idlist = response.data.id
-                console.log(this.datelist[0])
+                console.log(this.datelist)
                 // this.datelist.push(response.data.created_date);
             })
             .catch((error) => {
