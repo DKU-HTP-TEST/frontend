@@ -14,7 +14,7 @@
             <h2 class="more">&gt;</h2>
         </div>
         <hr>
-        <p class="withdrawal" @click="withdrawUser">회원탈퇴</p>
+        <p class="withdrawal" @click="openModal=true; withdrawUser()">회원탈퇴</p>
     </div>
 
     <div class="page" style="float: left;">
@@ -52,6 +52,7 @@ export default {
             username: '',
             user_id: '',
             useremail: '',
+            openModal : false,
         }
     },
     methods: {
@@ -93,19 +94,31 @@ export default {
                 console.log(error)
             });
         },
-        withdrawUser() {
-            axios.delete("http://127.0.0.1:8000/member/delete/"+this.user_id+"/", {
-                headers: {
-                    Authorization: this.token,
+        close(event){
+                if(event.target.classList.contains('modalcontent') || event.target.classList.contains('close')){
+                    this.openModal = false;
+                }else if(event.target.classList.contains('content')){
+                    this.openModal = true;
                 }
-            })
-            .then(Response => {
-                console.log('회원탈퇴 성공');
-                window.location.replace("http://localhost:8080/MainBeforeLogin")
-            })
-            .catch(error => {
-                console.log('회원 탈퇴 실패', error);
-            });
+            },
+        withdrawUser() {
+            if (confirm("정말로 탈퇴하시겠습니까?")) {
+                axios.delete("http://127.0.0.1:8000/member/delete/" + this.user_id + "/", {
+                    headers: {
+                        Authorization: this.token,
+                    }
+                })
+                .then(response => {
+                    console.log('회원탈퇴 성공');
+                    window.location.replace("http://localhost:8080/MainBeforeLogin");
+                })
+                .catch(error => {
+                    console.log('회원 탈퇴 실패', error);
+                });
+            } else {
+                console.log('탈퇴가 취소되었습니다.');
+                // 탈퇴가 취소된 경우 추가 작업을 할 수 있음
+            }
         },
     },
     created() {

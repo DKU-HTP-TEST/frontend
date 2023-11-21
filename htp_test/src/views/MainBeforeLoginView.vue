@@ -37,11 +37,11 @@
             </p>
             <div>
                 <!-- @click 바꿔야함 -->
-                <!-- <button type="button" class="btn btn-primary" @click="login()">HTP 검사 시작하기</button> -->
+                <button type="button" class="btn btn-primary" @click="showAlert()">HTP 검사 시작하기</button>
                 <!-- <button type="button" class="btn btn-primary" @click="showPopup">HTP 검사 시작하기</button>
                 <Modal></Modal> -->
                 <!-- <button type="button" class="btn btn-primary" @click="props">HTP 검사 시작하기</button> -->
-                <Modal :visible="false" variant="success" msg="HTP 검사 시작하기" title="로그인이 필요한 서비스 입니다" msg2="로그인하러 가기"></Modal>
+                <!-- <Modal :visible="false" variant="success" msg="HTP 검사 시작하기" title="로그인이 필요한 서비스 입니다" msg2="로그인하러 가기"></Modal> -->
             </div>
         </div>
     </div>
@@ -55,13 +55,23 @@ export default {
     components: {
       Modal
     },
-    props: {
-        title: String,
-        msg2: String,
-        msg: String,
-        visible: Boolean,
-    },
-  }
+    // props: {
+    //     title: String,
+    //     msg2: String,
+    //     msg: String,
+    //     visible: Boolean,
+    // },
+    methods: {
+        showAlert() {
+            if (confirm("로그인이 필요한 서비스입니다. 페이지를 이동하시겠습니까?")) {
+                // 확인을 눌렀을 때, 페이지를 이동하고자 하는 URL로 수정합니다.
+                window.location.replace('http://localhost:8080/login') // 원하는 URL로 수정
+            } else {
+                // 사용자가 취소를 눌렀을 때 추가적인 처리를 할 수 있습니다.
+            }
+        },
+    }
+}
 
 
 </script>

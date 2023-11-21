@@ -26,6 +26,7 @@
             <input type="password" v-model="password" placeholder=""/>
             <div class="findIDPW">
                 <router-link to="/findID">아이디 찾기 </router-link>
+                &nbsp; | &nbsp;
                 <router-link to="/findPW"> 비밀번호 찾기</router-link>
             </div>
             <div>
