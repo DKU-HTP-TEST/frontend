@@ -6,15 +6,18 @@
             <router-link to="/MainBeforeLogin" @click="logout()">로그아웃</router-link>
             &nbsp; | &nbsp;
             <router-link to="/mypage"> 마이페이지 &nbsp;&nbsp;&nbsp;</router-link>
+            <br>
+            <br>
         </div>
         <header>
-            <img src="../assets/orangeLogo.png" style="width:250px; height:200px;">
+            <img src="../assets/orangeLogo.png" style="width:250px; height:150px;">
         </header>
         <h4>
-            집/나무/사람 그림으로 알아보는 심리 검사
+            집 나무 사람 으로 알아보는 심리 검사
             <br>
-            <br>
+            <br><br><br><br><br>
         </h4>
+        <br>
         <br>
         <div class="mainpage">
             <div class="explain">
@@ -24,7 +27,7 @@
                 </p>
             </div>
             <p>
-                House-Tree-Person 검사, 줄여서 HTS 검사는 집, 나무, 사람<br/>
+                House-Tree-Person 검사, 줄여서 HTP 검사는 집, 나무, 사람<br/>
                 그림을 통해 정서적인 면을 파악하는 검사에요!
             </p>
             <p>
@@ -33,8 +36,8 @@
             </p>
             <p>3장의 종이와 펜을 준비해 주세요!<br/>
                 그럼 검사를 시작하러 가볼까요?<br/>
-                .<br/>.<br/>.
             </p>
+            <br>
             <div>
                 <button type="button" class="btn btn-primary"><router-link to="/teststart"> 검사 시작하기</router-link></button>
             </div>
@@ -95,7 +98,7 @@ import { VueElement } from 'vue';
     .btn {
         margin-top: 10px;
         /* position: absolute; */
-        width: 349px;
+        width: 429px;
         height: 39px;
         /* left: 31px;
         top: 416px; */
