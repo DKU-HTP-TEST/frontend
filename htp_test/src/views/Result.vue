@@ -9,7 +9,7 @@
             <TestResult msg = 'TREE 검사 결과' :msg2 = "TestResultTree"/>
         </div>
         <div class="row">
-            <TestResult msg = 'HUMAN 검사 결과' :msg2 = "TestResultPerson"/>
+            <TestResult msg = 'PERSON 검사 결과' :msg2 = "TestResultPerson"/>
         </div>
       </div>
 
