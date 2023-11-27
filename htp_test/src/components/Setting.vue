@@ -63,7 +63,7 @@ let get_url = "http://127.0.0.1:8000/get_user/"
         data() {
             return {
                 isModify : false,
-                password: "***",
+                password: "",
                 name: this.username,
                 id: this.user_id,
                 email: this.useremail,

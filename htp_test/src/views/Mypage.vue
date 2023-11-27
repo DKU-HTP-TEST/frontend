@@ -1,7 +1,7 @@
 <template>
     <div class="wrap">
     <div class="main" style="float: left;">
-        <img src="..\assets\HTP_logo2.png" class="logo">
+        <RouterLink to="/MainAfterLogin"><img src="..\assets\HTP_logo2.png" class="logo"></RouterLink>
         <!-- 글씨 크기 조절 (h1, h3 이런거 말고) -->
         <p class="title">안녕하세요, {{ username }}님!</p>
         <div class="menu" @click="res_exec">
@@ -30,17 +30,17 @@
 import Setting from "@/components/Setting.vue";
 import MypageResult from "@/components/MypageResult.vue";
 import axios from "axios";
-import Modal from "../components/Modal.vue";
+import { RouterLink } from "vue-router";
 
 let get_url = "http://127.0.0.1:8000/member/get_user/"
 
 export default {
     name: 'MypageComponent',
     components: {
-        Setting,
-        MypageResult,
-        Modal
-    },
+    Setting,
+    MypageResult,
+    RouterLink
+},
     data() {
         return {
             res: false,

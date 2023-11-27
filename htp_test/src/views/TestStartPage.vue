@@ -1,9 +1,9 @@
 <template>
-    <UpperSide msg="HTP 검사 시작"></UpperSide>
+    <UpperSide msg="검사를 시작할게요!"></UpperSide>
     <br><br><br><br><br><br><br>
-    <img src="../assets/HTP_logo.png" style="width:300px">
-    <h1>HTP 검사를 시작할게요!</h1>
+    <img src="../assets/HTP_logo.png" style="width:200px">
     <p>집, 나무, 사람 순서대로 그림을 업로드 해주세요.</p>
+    <br>
     <Button msg="다음" @click="start"></Button>
 </template>
 
@@ -32,6 +32,7 @@
   </script>
   
   <style>
+  
    body {
       margin: 0px;
       padding: 0px;
