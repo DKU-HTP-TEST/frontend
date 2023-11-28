@@ -10,7 +10,7 @@
             <div class = "menu">
                 <div class="list" :key="index" v-for="(item, index) in datelist">
                     <div class="date" @click="fetchResults(item, idlist[index])">{{ item }}<span class="more">&gt;</span>
-                    <button class="delete-button" @click="deleteItem(item)" v-if="isDeleteButtonVisible">X</button>
+                    <button class="delete-button" @click="deleteItem(item, idlist[index])" v-if="isDeleteButtonVisible">X</button>
                     </div>
                     <hr>
                 </div>
@@ -118,14 +118,15 @@ export default {
         },
 
         // 삭제 버튼 클릭 시 아이템 삭제
-        deleteItem(item) {
+        deleteItem(item, id) {
             axios.delete(delete_url, {
                 headers: {
                     Authorization: this.token,
                 },
                 params: {
                     user_id: this.user_id,
-                    del_date: item
+                    del_date: item,
+                    del_id: id,
                 }
             })
             .then((response)=> {
