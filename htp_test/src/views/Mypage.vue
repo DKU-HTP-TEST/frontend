@@ -110,6 +110,7 @@ export default {
                 })
                 .then(response => {
                     console.log('회원탈퇴 성공');
+                    localStorage.removeItem("token");
                     window.location.replace("http://localhost:8080/Main");
                 })
                 .catch(error => {
