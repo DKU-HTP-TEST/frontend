@@ -83,7 +83,7 @@
         watch: {
             issuc() {
                 if(this.issuc == true) {
-                    window.location.replace('http://localhost:8080/MainAfterLogin')
+                    window.location.replace('http://localhost:8080/Main')
                 }
             }
         }

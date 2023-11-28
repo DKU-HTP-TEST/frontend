@@ -1,7 +1,7 @@
 <template>
     <div class="wrap">
     <div class="main" style="float: left;">
-        <RouterLink to="/MainAfterLogin"><img src="..\assets\HTP_logo2.png" class="logo"></RouterLink>
+        <RouterLink to="/Main"><img src="..\assets\HTP_logo2.png" class="logo"></RouterLink>
         <!-- 글씨 크기 조절 (h1, h3 이런거 말고) -->
         <p class="title">안녕하세요, {{ username }}님!</p>
         <div class="menu" @click="res_exec">
@@ -110,7 +110,7 @@ export default {
                 })
                 .then(response => {
                     console.log('회원탈퇴 성공');
-                    window.location.replace("http://localhost:8080/MainBeforeLogin");
+                    window.location.replace("http://localhost:8080/Main");
                 })
                 .catch(error => {
                     console.log('회원 탈퇴 실패', error);
