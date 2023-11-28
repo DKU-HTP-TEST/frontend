@@ -30,18 +30,22 @@
     }
     .test_result {
       width: 420px; 
-      height: 500px; 
+      height: 480px; 
       /* border: 1px solid #F6B590;  */
       /* overflow-y: scroll;  위 아래로만 스크롤 가능하도록 설정 */
       overflow-x: hidden;  /* 수평 스크롤 비활성화 */
       background-color: rgba(246, 181, 144, 0.1);
       border-radius: 1%;
-      margin-top: 15px;
+      margin-top: 20px;
 
     }
     
     .content {
-        padding: 12px; 
+        /* margin-top: 10px; */
+        padding: 30px; 
+        text-align: justify;
+        font-size: large;
+        line-height: 1.7;
 
     }
     .test_name{
