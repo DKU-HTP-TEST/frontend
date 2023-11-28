@@ -8,8 +8,7 @@ import Mypage from '../views/Mypage'
 import Complete from '../views/Complete.vue'
 import TestStartPage from '../views/TestStartPage'
 import TestPage from '../views/TestPage'
-import MainBeforeLoginView from '../views/MainBeforeLoginView.vue'
-import MainAfterLoginView from '../views/MainAfterLoginView.vue'
+import Main from '../views/Main.vue'
 import Result from '../views/Result.vue'
 import Loading from '../views/Loading.vue'
 
@@ -37,17 +36,11 @@ const routes = [
         name: 'login',
         component: LoginView
     },
-    
-    {
-        path: '/MainBeforeLogin',
-        name: 'MainBeforeLogin',
-        component: MainBeforeLoginView
-    },
 
     {
-        path: '/MainAfterLogin',
-        name: 'MainAfterLogin',
-        component: MainAfterLoginView
+        path: '/Main',
+        name: 'Main',
+        component: Main
     },
 
     {

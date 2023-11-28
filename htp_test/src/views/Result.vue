@@ -55,7 +55,7 @@ export default {
       },
       go_main: function() {
         this.$router.push({
-                name: "MainAfterLogin",
+                name: "Main",
             })
       },
       fetchTestResults(){
