@@ -201,10 +201,15 @@ export default {
         justify-content: right;
         background-color: rgba(246, 181, 144, 0.1);
         width: 520px;
-        height: 720px;
-        
+        max-height: 720px;
+        overflow: hidden; /* 넘치는 부분 숨기기 */
         margin-left: 40px; 
         border-radius: 5%;
+        padding: 1rem;
+        overflow-y: auto;
+        direction: ltr;
+        scrollbar-color: #d4aa70 #e4e4e4;
+        scrollbar-width: thin;
     }
     .results > h2 {
         text-align: left;
@@ -218,6 +223,19 @@ export default {
         margin-left: 30px;
         margin-top: 25px;
         font-size: x-large;
+    }
+    .results::-webkit-scrollbar {
+        width: 10px;
+    }
+    .results::-webkit-scrollbar-track {
+        background-color: #e4e4e4;
+        border-radius: 100px;
+    }
+    .results::-webkit-scrollbar-thumb {
+        border-radius: 100px;
+        /* background-image: linear-gradient(180deg, #d0368a 0%, #708ad4 99%); */
+        background-image: linear-gradient(180deg, #070707);
+        /* box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5); */
     }
     
     .list {
@@ -257,10 +275,13 @@ export default {
         display: flex;
         flex-direction: column;
         width: 455px;
-        height: 160px;
+        /* height: 160px */
+        height: auto;
         text-align: justify;
         margin-left: 30px;
         margin-top: 8px;
+        overflow-y: auto; /* 스크롤바가 필요한 경우만 보이도록 설정 */
+        max-height: calc(720px - 60px); /* h2와 h3 요소의 높이를 고려하여 스크롤바가 나타날 최대 높이 */
     }
     
     .house_res, .tree_res, .human_res {
