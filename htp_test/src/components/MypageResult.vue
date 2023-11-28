@@ -287,5 +287,6 @@ export default {
     
     .house_res, .tree_res, .human_res {
         margin-top: 0;
+        margin-right: 30px;
     }
 </style>
